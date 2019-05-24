@@ -97,8 +97,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\THSAdminController.cs" />
-    <Compile Include="Filter\FilterIPAttribute.cs" />
+    <Compile Include="Controller\ThisController.cs" />
     <Compile Include="Helper\HelperBiz.cs" />
     <Compile Include="Helper\OperationResult.cs" />
     <Compile Include="Program.cs" />

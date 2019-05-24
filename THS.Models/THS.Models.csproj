@@ -160,6 +160,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MyModelAndClass.cs" />
     <Compile Include="NienKhoa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

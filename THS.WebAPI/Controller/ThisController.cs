@@ -12,7 +12,6 @@ using System.Data.SqlClient;
 
 namespace THS.WebAPI.Controller
 {
-    [THS.WebAPI.Filter.FilterIP]
     [RoutePrefix("api/thiscontroller")]
     public class THSAdminController : ApiController
     {
