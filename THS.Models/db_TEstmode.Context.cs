@@ -12,8 +12,6 @@ namespace EHS.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
     public partial class db_TestEntities : DbContext
     {
@@ -29,10 +27,5 @@ namespace EHS.Models
     
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-    
-        public virtual ObjectResult<GetData_Result> GetData()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetData_Result>("GetData");
-        }
     }
 }

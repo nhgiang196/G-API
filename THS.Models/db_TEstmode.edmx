@@ -33,7 +33,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="GetData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="db_TestModelStoreContainer">
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -60,7 +59,6 @@
             <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <FunctionImport Name="GetData" ReturnType="Collection(db_TestModel.GetData_Result)" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -90,6 +88,10 @@
           <Property Type="String" Name="Age" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="id_r" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="GetData_Result1">
+          <Property Type="String" Name="id_r" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="role_name" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -114,16 +116,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetData" FunctionName="db_TestModel.Store.GetData">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="db_TestModel.GetData_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="id_r" ColumnName="id_r" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

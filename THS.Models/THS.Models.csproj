@@ -136,6 +136,9 @@
     <Compile Include="GetData_Result.cs">
       <DependentUpon>db_TEstmode.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetData_Result1.cs">
+      <DependentUpon>db_TEstmode.tt</DependentUpon>
+    </Compile>
     <Compile Include="GiangVien.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
