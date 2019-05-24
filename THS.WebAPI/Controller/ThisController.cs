@@ -16,21 +16,29 @@ namespace THS.WebAPI.Controller
     public class THSAdminController : ApiController
     {
         thsContext _context = new thsContext();
+        db_TestEntities db = new db_TestEntities();
+        
+
+
 
         [Route("Myfunction")]
         [HttpGet]
-        public IHttpActionResult Myfunction(MyModelAndClass pr)
+        public IHttpActionResult Myfunction()
         {
             try
             {
-                var dt = _context.ChangePassword(pr.username, pr.pass, pr.newpass).ToList();
-                _context.SaveChanges();
+                var dt = db.GetData().FirstOrDefault();
+                    //var dt = _context.ChangePassword(pr.username, pr.pass, pr.newpass).ToList();
+                //_context.SaveChanges();
+                return Ok(dt);
             }
             catch (Exception e)
             {
+                return Ok(e);
                 throw new Exception(e.Message);
             }
-            return Ok();
+            
+
         }
 
     }
