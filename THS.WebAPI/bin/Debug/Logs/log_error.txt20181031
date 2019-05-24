@@ -1,0 +1,12 @@
+2018-10-31 14:06:33
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at THS.WebAPI.Controller.THSAdminController.FindByID(mygrantparram pr) in d:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 72
+2018-10-31 14:07:00
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at THS.WebAPI.Controller.THSAdminController.FindByID(mygrantparram pr) in d:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 72
+2018-10-31 14:07:45
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at THS.WebAPI.Controller.THSAdminController.FindByID(mygrantparram pr) in d:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 72
+2018-10-31 14:09:09
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at THS.WebAPI.Controller.THSAdminController.FindByID(mygrantparram pr) in d:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 72

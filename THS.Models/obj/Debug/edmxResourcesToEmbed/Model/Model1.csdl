@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestEHSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CenterDepartment">
+    <Key>
+      <PropertyRef Name="CostCenter" />
+    </Key>
+    <Property Name="CostCenter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Specification_EN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Specification_VN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Specification_TW" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Specification_CN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK_Department_CenterDepartment" FromRole="CenterDepartment" ToRole="Department" />
+    <NavigationProperty Name="Vouchers" Relationship="Self.FK_Voucher_CenterDepartment" FromRole="CenterDepartment" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompID" />
+    </Key>
+    <Property Name="CompID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Vouchers" Relationship="Self.fk_voucher_owner_com_company" FromRole="Company" ToRole="Voucher" />
+    <NavigationProperty Name="Vouchers1" Relationship="Self.fk_voucher_process_c_company" FromRole="Company" ToRole="Voucher" />
+    <NavigationProperty Name="WasteItems" Relationship="Self.FK_WasteItems_Company" FromRole="Company" ToRole="WasteItems" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="CostCenter" />
+    </Key>
+    <Property Name="CostCenter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Specification_EN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Specification_VN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Specification_TW" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Specification_CN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Center" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CenterDepartment" Relationship="Self.FK_Department_CenterDepartment" FromRole="Department" ToRole="CenterDepartment" />
+    <NavigationProperty Name="Vouchers" Relationship="Self.FK_Voucher_Department" FromRole="Department" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="MethodProcess">
+    <Key>
+      <PropertyRef Name="MethodID" />
+    </Key>
+    <Property Name="MethodID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description_EN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description_TW" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description_CN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description_VN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="WasteItems" Relationship="Self.fk_waste_it_methodID_method_p" FromRole="MethodProcess" ToRole="WasteItems" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="VoucherID" />
+    </Key>
+    <Property Name="VoucherID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OwnerComp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProcessComp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VoucherNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartReq" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartProcess" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InternalPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOut" Type="DateTime" Precision="0" />
+    <Property Name="DateComplete" Type="DateTime" Precision="0" />
+    <Property Name="ReturnReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Stamp" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CenterDepartment" Relationship="Self.FK_Voucher_CenterDepartment" FromRole="Voucher" ToRole="CenterDepartment" />
+    <NavigationProperty Name="Company" Relationship="Self.fk_voucher_owner_com_company" FromRole="Voucher" ToRole="Company" />
+    <NavigationProperty Name="Company1" Relationship="Self.fk_voucher_process_c_company" FromRole="Voucher" ToRole="Company" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Voucher_Department" FromRole="Voucher" ToRole="Department" />
+    <NavigationProperty Name="VoucherDetails" Relationship="Self.fk_voucher__voucherID_voucher" FromRole="Voucher" ToRole="VoucherDetail" />
+  </EntityType>
+  <EntityType Name="VoucherDetail">
+    <Key>
+      <PropertyRef Name="WasteID" />
+      <PropertyRef Name="VoucherID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WasteID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VoucherID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Weight" Type="Single" />
+    <NavigationProperty Name="Voucher" Relationship="Self.fk_voucher__voucherID_voucher" FromRole="VoucherDetail" ToRole="Voucher" />
+    <NavigationProperty Name="WasteItem" Relationship="Self.fk_voucher__wasteID_waste_it" FromRole="VoucherDetail" ToRole="WasteItems" />
+  </EntityType>
+  <EntityType Name="WasteItem">
+    <Key>
+      <PropertyRef Name="WasteID" />
+    </Key>
+    <Property Name="WasteID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MethodID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description_EN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description_TW" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description_CN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description_VN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_WasteItems_Company" FromRole="WasteItems" ToRole="Company" />
+    <NavigationProperty Name="MethodProcess" Relationship="Self.fk_waste_it_methodID_method_p" FromRole="WasteItems" ToRole="MethodProcess" />
+    <NavigationProperty Name="VoucherDetails" Relationship="Self.fk_voucher__wasteID_waste_it" FromRole="WasteItems" ToRole="VoucherDetail" />
+  </EntityType>
+  <Association Name="FK_Department_CenterDepartment">
+    <End Role="CenterDepartment" Type="Self.CenterDepartment" Multiplicity="0..1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CenterDepartment">
+        <PropertyRef Name="CostCenter" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="Center" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_CenterDepartment">
+    <End Role="CenterDepartment" Type="Self.CenterDepartment" Multiplicity="0..1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CenterDepartment">
+        <PropertyRef Name="CostCenter" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="DepartReq" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_voucher_owner_com_company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompID" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="OwnerComp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_voucher_process_c_company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompID" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="ProcessComp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WasteItems_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="WasteItems" Type="Self.WasteItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompID" />
+      </Principal>
+      <Dependent Role="WasteItems">
+        <PropertyRef Name="CompID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="CostCenter" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="DepartProcess" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_waste_it_methodID_method_p">
+    <End Role="MethodProcess" Type="Self.MethodProcess" Multiplicity="0..1" />
+    <End Role="WasteItems" Type="Self.WasteItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MethodProcess">
+        <PropertyRef Name="MethodID" />
+      </Principal>
+      <Dependent Role="WasteItems">
+        <PropertyRef Name="MethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_voucher__voucherID_voucher">
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VoucherDetail" Type="Self.VoucherDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="VoucherID" />
+      </Principal>
+      <Dependent Role="VoucherDetail">
+        <PropertyRef Name="VoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_voucher__wasteID_waste_it">
+    <End Role="WasteItems" Type="Self.WasteItem" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="VoucherDetail" Type="Self.VoucherDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WasteItems">
+        <PropertyRef Name="WasteID" />
+      </Principal>
+      <Dependent Role="VoucherDetail">
+        <PropertyRef Name="WasteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EHSContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CenterDepartments" EntityType="Self.CenterDepartment" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="MethodProcesses" EntityType="Self.MethodProcess" />
+    <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
+    <EntitySet Name="VoucherDetails" EntityType="Self.VoucherDetail" />
+    <EntitySet Name="WasteItems" EntityType="Self.WasteItem" />
+    <AssociationSet Name="FK_Department_CenterDepartment" Association="Self.FK_Department_CenterDepartment">
+      <End Role="CenterDepartment" EntitySet="CenterDepartments" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_CenterDepartment" Association="Self.FK_Voucher_CenterDepartment">
+      <End Role="CenterDepartment" EntitySet="CenterDepartments" />
+      <End Role="Voucher" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_voucher_owner_com_company" Association="Self.fk_voucher_owner_com_company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Voucher" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_voucher_process_c_company" Association="Self.fk_voucher_process_c_company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Voucher" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WasteItems_Company" Association="Self.FK_WasteItems_Company">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="WasteItems" EntitySet="WasteItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_Department" Association="Self.FK_Voucher_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Voucher" EntitySet="Vouchers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_waste_it_methodID_method_p" Association="Self.fk_waste_it_methodID_method_p">
+      <End Role="MethodProcess" EntitySet="MethodProcesses" />
+      <End Role="WasteItems" EntitySet="WasteItems" />
+    </AssociationSet>
+    <AssociationSet Name="fk_voucher__voucherID_voucher" Association="Self.fk_voucher__voucherID_voucher">
+      <End Role="Voucher" EntitySet="Vouchers" />
+      <End Role="VoucherDetail" EntitySet="VoucherDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_voucher__wasteID_waste_it" Association="Self.fk_voucher__wasteID_waste_it">
+      <End Role="WasteItems" EntitySet="WasteItems" />
+      <End Role="VoucherDetail" EntitySet="VoucherDetails" />
+    </AssociationSet>
+    <FunctionImport Name="GetBasic">
+      <Parameter Name="Table" Mode="In" Type="String" />
+      <Parameter Name="Lang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetVoucher" ReturnType="Collection(TestEHSModel.GetVoucher_Result)">
+      <Parameter Name="VoucherID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetVoucherDetail" ReturnType="Collection(TestEHSModel.GetVoucherDetail_Result)">
+      <Parameter Name="VoucherID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetVoucherNumber" />
+    <FunctionImport Name="GetWasteByID">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="Language" Mode="In" Type="String" />
+      <Parameter Name="ProcessComp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetWasteItem" ReturnType="Collection(TestEHSModel.GetWasteItem_Result)">
+      <Parameter Name="Language" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchCompany" ReturnType="Collection(TestEHSModel.SearchCompany_Result)">
+      <Parameter Name="CompName" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="CompCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchMethod" ReturnType="Collection(TestEHSModel.SearchMethod_Result)">
+      <Parameter Name="MethodID" Mode="In" Type="String" />
+      <Parameter Name="MethodName" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchVoucher">
+      <Parameter Name="VoucherID" Mode="In" Type="String" />
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+      <Parameter Name="ProcessComp" Mode="In" Type="String" />
+      <Parameter Name="DepartProcess" Mode="In" Type="String" />
+      <Parameter Name="InternalPhone" Mode="In" Type="String" />
+      <Parameter Name="VoucherNumber" Mode="In" Type="String" />
+      <Parameter Name="DepartReq" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="CheckMyOwn" Mode="In" Type="Boolean" />
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="PageSize" Mode="In" Type="Int32" />
+      <Parameter Name="PageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="Lang" Mode="In" Type="String" />
+      <Parameter Name="count" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchWasteItem" ReturnType="Collection(TestEHSModel.SearchWasteItem_Result)">
+      <Parameter Name="MethodID" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="ItemCode" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="ProcessComp" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetVoucher_Result">
+    <Property Type="String" Name="VoucherID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="VoucherNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OwnerComp" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OwnerCompCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OwnerCompAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="OwnerCompPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OwnerCompEmail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProcessComp" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProcessCompCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProcessCompAddress" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ProcessCompPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProcessCompEmail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DepartProcess" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DepartReq" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="InternalPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="SumTotal" Nullable="true" />
+    <Property Type="Int32" Name="SumQty" Nullable="true" />
+    <Property Type="DateTime" Name="DateOut" Nullable="true" />
+    <Property Type="DateTime" Name="DateComplete" Nullable="true" />
+    <Property Type="String" Name="ReturnReason" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Stamp" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetVoucherDetail_Result">
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CompName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_VN" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_TW" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_CN" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MethodName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Single" Name="Weight" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetWasteItem_Result">
+    <Property Type="String" Name="WasteID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MethodDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="WasteDescription" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CompID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MethodName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchCompany_Result">
+    <Property Type="String" Name="CompID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CompName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CompCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchMethod_Result">
+    <Property Type="String" Name="MethodID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MethodName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description_EN" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_TW" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_CN" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_VN" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchWasteItem_Result">
+    <Property Type="String" Name="WasteID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MethodID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MethodName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description_VN" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Description_TW" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+    <Property Type="String" Name="CompName" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

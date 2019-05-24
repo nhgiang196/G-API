@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="acca1e44ad1c44279249d527b1efb8e2" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="thsModel.BoMon" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.ChuyenNganh" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.CTHDDC" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.CTHDLV" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.DeTaiLV" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.DIEMLV" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.DonViNgoai" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.GiangVien" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HDBVDC" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HDBVLV" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HDDC" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HDLV" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HocCN" Width="1.5" PointX="8.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HocVien" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.HuongDan" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.LinhVucChuyenMon" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.NienKhoa" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.PhanQuyen" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="thsModel.Tcode" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="thsModel.FK_ChuyenNganh_BoMon" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_GiangVien_BoMon" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_DeTaiLV_ChuyenNganh" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HocCN_ChuyenNganh" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_CTHDDC_GiangVien" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_CTHDDC_HDBVDC" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_CTHDLV_GiangVien" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_CTHDLV_HDBVLV" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_DeTaiLV_HocVien" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_DeTaiLV_LinhVucChuyenMon" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_hddc_DeTaiLV" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HDLV_DeTaiLV" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HuongDan_DeTaiLV" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_GiangVien_DonViNgoai" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HuongDan_GiangVien" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_PhanQuyen_GiangVien" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_hddc_HDBVDC" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HDLV_HDBVLV" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HocCN_HocVien" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_HocCN_NienKhoa" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.FK_PhanQuyen_Tcode" ManuallyRouted="false" />
+        <AssociationConnector Association="thsModel.CMGV" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

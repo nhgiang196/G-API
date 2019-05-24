@@ -1,0 +1,1114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="thsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BoMon">
+    <Key>
+      <PropertyRef Name="bm" />
+    </Key>
+    <Property Name="bm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bmten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="tbm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChuyenNganhs" Relationship="Self.FK_ChuyenNganh_BoMon" FromRole="BoMon" ToRole="ChuyenNganh" />
+    <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_BoMon" FromRole="BoMon" ToRole="GiangVien" />
+  </EntityType>
+  <EntityType Name="ChuyenNganh">
+    <Key>
+      <PropertyRef Name="cn" />
+    </Key>
+    <Property Name="cn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="cnten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BoMon" Relationship="Self.FK_ChuyenNganh_BoMon" FromRole="ChuyenNganh" ToRole="BoMon" />
+    <NavigationProperty Name="DeTaiLVs" Relationship="Self.FK_DeTaiLV_ChuyenNganh" FromRole="ChuyenNganh" ToRole="DeTaiLV" />
+    <NavigationProperty Name="HocCNs" Relationship="Self.FK_HocCN_ChuyenNganh" FromRole="ChuyenNganh" ToRole="HocCN" />
+  </EntityType>
+  <EntityType Name="CTHDDC">
+    <Key>
+      <PropertyRef Name="dc" />
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="dc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="vaitro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_CTHDDC_GiangVien" FromRole="CTHDDC" ToRole="GiangVien" />
+    <NavigationProperty Name="HDBVDC" Relationship="Self.FK_CTHDDC_HDBVDC" FromRole="CTHDDC" ToRole="HDBVDC" />
+  </EntityType>
+  <EntityType Name="CTHDLV">
+    <Key>
+      <PropertyRef Name="gv" />
+      <PropertyRef Name="hd" />
+    </Key>
+    <Property Name="gv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="vaitro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_CTHDLV_GiangVien" FromRole="CTHDLV" ToRole="GiangVien" />
+    <NavigationProperty Name="HDBVLV" Relationship="Self.FK_CTHDLV_HDBVLV" FromRole="CTHDLV" ToRole="HDBVLV" />
+  </EntityType>
+  <EntityType Name="DeTaiLV">
+    <Key>
+      <PropertyRef Name="lv" />
+    </Key>
+    <Property Name="lv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="qd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="cn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="hv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lvloai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="nk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="lvten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="lvtomtat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="lvngaynop" Type="DateTime" Precision="0" />
+    <Property Name="lvluutru" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="createby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="modifyby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ctime" Type="DateTime" Precision="3" />
+    <Property Name="mtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChuyenNganh" Relationship="Self.FK_DeTaiLV_ChuyenNganh" FromRole="DeTaiLV" ToRole="ChuyenNganh" />
+    <NavigationProperty Name="HocVien" Relationship="Self.FK_DeTaiLV_HocVien" FromRole="DeTaiLV" ToRole="HocVien" />
+    <NavigationProperty Name="LinhVucChuyenMon" Relationship="Self.FK_DeTaiLV_LinhVucChuyenMon" FromRole="DeTaiLV" ToRole="LinhVucChuyenMon" />
+    <NavigationProperty Name="HDDCs" Relationship="Self.FK_hddc_DeTaiLV" FromRole="DeTaiLV" ToRole="HDDC" />
+    <NavigationProperty Name="HDLVs" Relationship="Self.FK_HDLV_DeTaiLV" FromRole="DeTaiLV" ToRole="HDLV" />
+    <NavigationProperty Name="HuongDans" Relationship="Self.FK_HuongDan_DeTaiLV" FromRole="DeTaiLV" ToRole="HuongDan" />
+  </EntityType>
+  <EntityType Name="DIEMLV">
+    <Key>
+      <PropertyRef Name="mahd" />
+      <PropertyRef Name="lv" />
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="mahd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="diem" Type="Single" />
+    <Property Name="danhgia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DonViNgoai">
+    <Key>
+      <PropertyRef Name="dv" />
+    </Key>
+    <Property Name="dv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dvten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dvdiachi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dvsdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dveil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiangViens" Relationship="Self.FK_GiangVien_DonViNgoai" FromRole="DonViNgoai" ToRole="GiangVien" />
+  </EntityType>
+  <EntityType Name="GiangVien">
+    <Key>
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="gv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="bm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="gvhoten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gvgioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gvchucdanh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="gvnamcongtac" Type="DateTime" Precision="0" />
+    <Property Name="gvquoctich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gvngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="gvnoio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gvsodienthoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gveil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gvhinhanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="gvtkhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="createby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="modifyby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ctime" Type="DateTime" Precision="3" />
+    <Property Name="mtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BoMon" Relationship="Self.FK_GiangVien_BoMon" FromRole="GiangVien" ToRole="BoMon" />
+    <NavigationProperty Name="CTHDDCs" Relationship="Self.FK_CTHDDC_GiangVien" FromRole="GiangVien" ToRole="CTHDDC" />
+    <NavigationProperty Name="CTHDLVs" Relationship="Self.FK_CTHDLV_GiangVien" FromRole="GiangVien" ToRole="CTHDLV" />
+    <NavigationProperty Name="DonViNgoai" Relationship="Self.FK_GiangVien_DonViNgoai" FromRole="GiangVien" ToRole="DonViNgoai" />
+    <NavigationProperty Name="HuongDans" Relationship="Self.FK_HuongDan_GiangVien" FromRole="GiangVien" ToRole="HuongDan" />
+    <NavigationProperty Name="PhanQuyens" Relationship="Self.FK_PhanQuyen_GiangVien" FromRole="GiangVien" ToRole="PhanQuyen" />
+    <NavigationProperty Name="LinhVucChuyenMons" Relationship="Self.CMGV" FromRole="GiangVien" ToRole="LinhVucChuyenMon" />
+  </EntityType>
+  <EntityType Name="HDBVDC">
+    <Key>
+      <PropertyRef Name="dc" />
+    </Key>
+    <Property Name="dc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dcten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dcngaythanhlap" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dcngayketthuc" Type="DateTime" Precision="0" />
+    <Property Name="dcdiadiem" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="dcthoigian" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="createby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="modifyby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ctime" Type="DateTime" Precision="3" />
+    <Property Name="mtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTHDDCs" Relationship="Self.FK_CTHDDC_HDBVDC" FromRole="HDBVDC" ToRole="CTHDDC" />
+    <NavigationProperty Name="HDDCs" Relationship="Self.FK_hddc_HDBVDC" FromRole="HDBVDC" ToRole="HDDC" />
+  </EntityType>
+  <EntityType Name="HDBVLV">
+    <Key>
+      <PropertyRef Name="hd" />
+    </Key>
+    <Property Name="hd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hdten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hdngaythanhlap" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hdngayketthuc" Type="DateTime" Precision="0" />
+    <Property Name="hddiadiem" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hdthoigian" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="createby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="modifyby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ctime" Type="DateTime" Precision="3" />
+    <Property Name="mtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTHDLVs" Relationship="Self.FK_CTHDLV_HDBVLV" FromRole="HDBVLV" ToRole="CTHDLV" />
+    <NavigationProperty Name="HDLVs" Relationship="Self.FK_HDLV_HDBVLV" FromRole="HDBVLV" ToRole="HDLV" />
+  </EntityType>
+  <EntityType Name="HDDC">
+    <Key>
+      <PropertyRef Name="dc" />
+      <PropertyRef Name="lv" />
+    </Key>
+    <Property Name="dc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lanbaove" Type="Int16" />
+    <Property Name="ykien" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ketqua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sophieudat" Type="Int32" />
+    <Property Name="diem" Type="Single" />
+    <Property Name="thoidiembvdc" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DeTaiLV" Relationship="Self.FK_hddc_DeTaiLV" FromRole="HDDC" ToRole="DeTaiLV" />
+    <NavigationProperty Name="HDBVDC" Relationship="Self.FK_hddc_HDBVDC" FromRole="HDDC" ToRole="HDBVDC" />
+  </EntityType>
+  <EntityType Name="HDLV">
+    <Key>
+      <PropertyRef Name="hd" />
+      <PropertyRef Name="lv" />
+    </Key>
+    <Property Name="hd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="diem" Type="Single" />
+    <Property Name="ykien" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ketqua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lanbaove" Type="Int16" />
+    <Property Name="sophieudat" Type="Int16" />
+    <Property Name="thoidiembv" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DeTaiLV" Relationship="Self.FK_HDLV_DeTaiLV" FromRole="HDLV" ToRole="DeTaiLV" />
+    <NavigationProperty Name="HDBVLV" Relationship="Self.FK_HDLV_HDBVLV" FromRole="HDLV" ToRole="HDBVLV" />
+  </EntityType>
+  <EntityType Name="HocCN">
+    <Key>
+      <PropertyRef Name="hv" />
+      <PropertyRef Name="cn" />
+    </Key>
+    <Property Name="hv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cn" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChuyenNganh" Relationship="Self.FK_HocCN_ChuyenNganh" FromRole="HocCN" ToRole="ChuyenNganh" />
+    <NavigationProperty Name="HocVien" Relationship="Self.FK_HocCN_HocVien" FromRole="HocCN" ToRole="HocVien" />
+    <NavigationProperty Name="NienKhoa" Relationship="Self.FK_HocCN_NienKhoa" FromRole="HocCN" ToRole="NienKhoa" />
+  </EntityType>
+  <EntityType Name="HocVien">
+    <Key>
+      <PropertyRef Name="hv" />
+    </Key>
+    <Property Name="hv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hvhoten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hvgioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hvngaysinh" Type="DateTime" Precision="0" />
+    <Property Name="hvngaydkdt" Type="DateTime" Precision="0" />
+    <Property Name="hvngaydkbv" Type="DateTime" Precision="0" />
+    <Property Name="hvquequan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hvsodienthoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hveil" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hvhinhanh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hvtkhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="createby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="modifyby" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ctime" Type="DateTime" Precision="3" />
+    <Property Name="mtime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DeTaiLVs" Relationship="Self.FK_DeTaiLV_HocVien" FromRole="HocVien" ToRole="DeTaiLV" />
+    <NavigationProperty Name="HocCNs" Relationship="Self.FK_HocCN_HocVien" FromRole="HocVien" ToRole="HocCN" />
+  </EntityType>
+  <EntityType Name="HuongDan">
+    <Key>
+      <PropertyRef Name="lv" />
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="lv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="vaitrohuongdan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DeTaiLV" Relationship="Self.FK_HuongDan_DeTaiLV" FromRole="HuongDan" ToRole="DeTaiLV" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_HuongDan_GiangVien" FromRole="HuongDan" ToRole="GiangVien" />
+  </EntityType>
+  <EntityType Name="LinhVucChuyenMon">
+    <Key>
+      <PropertyRef Name="cm" />
+    </Key>
+    <Property Name="cm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cmten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DeTaiLVs" Relationship="Self.FK_DeTaiLV_LinhVucChuyenMon" FromRole="LinhVucChuyenMon" ToRole="DeTaiLV" />
+    <NavigationProperty Name="GiangViens" Relationship="Self.CMGV" FromRole="LinhVucChuyenMon" ToRole="GiangVien" />
+  </EntityType>
+  <EntityType Name="NienKhoa">
+    <Key>
+      <PropertyRef Name="nk" />
+    </Key>
+    <Property Name="nk" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nkten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nknam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nktungay" Type="DateTime" Precision="0" />
+    <Property Name="nkdenngay" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HocCNs" Relationship="Self.FK_HocCN_NienKhoa" FromRole="NienKhoa" ToRole="HocCN" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="gv" />
+      <PropertyRef Name="tcode" />
+    </Key>
+    <Property Name="gv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tcode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="grantvoke" Type="Boolean" />
+    <Property Name="usergrant" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK_PhanQuyen_GiangVien" FromRole="PhanQuyen" ToRole="GiangVien" />
+    <NavigationProperty Name="Tcode1" Relationship="Self.FK_PhanQuyen_Tcode" FromRole="PhanQuyen" ToRole="Tcode" />
+  </EntityType>
+  <EntityType Name="Tcode">
+    <Key>
+      <PropertyRef Name="tcode1" />
+    </Key>
+    <Property Name="tcode1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tcname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhanQuyens" Relationship="Self.FK_PhanQuyen_Tcode" FromRole="Tcode" ToRole="PhanQuyen" />
+  </EntityType>
+  <Association Name="FK_ChuyenNganh_BoMon">
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="0..1" />
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoMon">
+        <PropertyRef Name="bm" />
+      </Principal>
+      <Dependent Role="ChuyenNganh">
+        <PropertyRef Name="bm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GiangVien_BoMon">
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="0..1" />
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoMon">
+        <PropertyRef Name="bm" />
+      </Principal>
+      <Dependent Role="GiangVien">
+        <PropertyRef Name="bm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeTaiLV_ChuyenNganh">
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="0..1" />
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenNganh">
+        <PropertyRef Name="cn" />
+      </Principal>
+      <Dependent Role="DeTaiLV">
+        <PropertyRef Name="cn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HocCN_ChuyenNganh">
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="1" />
+    <End Role="HocCN" Type="Self.HocCN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenNganh">
+        <PropertyRef Name="cn" />
+      </Principal>
+      <Dependent Role="HocCN">
+        <PropertyRef Name="cn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDDC_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="CTHDDC" Type="Self.CTHDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="CTHDDC">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDDC_HDBVDC">
+    <End Role="HDBVDC" Type="Self.HDBVDC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CTHDDC" Type="Self.CTHDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVDC">
+        <PropertyRef Name="dc" />
+      </Principal>
+      <Dependent Role="CTHDDC">
+        <PropertyRef Name="dc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDLV_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="CTHDLV" Type="Self.CTHDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="CTHDLV">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDLV_HDBVLV">
+    <End Role="HDBVLV" Type="Self.HDBVLV" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CTHDLV" Type="Self.CTHDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVLV">
+        <PropertyRef Name="hd" />
+      </Principal>
+      <Dependent Role="CTHDLV">
+        <PropertyRef Name="hd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeTaiLV_HocVien">
+    <End Role="HocVien" Type="Self.HocVien" Multiplicity="0..1" />
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocVien">
+        <PropertyRef Name="hv" />
+      </Principal>
+      <Dependent Role="DeTaiLV">
+        <PropertyRef Name="hv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeTaiLV_LinhVucChuyenMon">
+    <End Role="LinhVucChuyenMon" Type="Self.LinhVucChuyenMon" Multiplicity="0..1" />
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVucChuyenMon">
+        <PropertyRef Name="cm" />
+      </Principal>
+      <Dependent Role="DeTaiLV">
+        <PropertyRef Name="cm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hddc_DeTaiLV">
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="1" />
+    <End Role="HDDC" Type="Self.HDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeTaiLV">
+        <PropertyRef Name="lv" />
+      </Principal>
+      <Dependent Role="HDDC">
+        <PropertyRef Name="lv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HDLV_DeTaiLV">
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="1" />
+    <End Role="HDLV" Type="Self.HDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeTaiLV">
+        <PropertyRef Name="lv" />
+      </Principal>
+      <Dependent Role="HDLV">
+        <PropertyRef Name="lv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HuongDan_DeTaiLV">
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="1" />
+    <End Role="HuongDan" Type="Self.HuongDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeTaiLV">
+        <PropertyRef Name="lv" />
+      </Principal>
+      <Dependent Role="HuongDan">
+        <PropertyRef Name="lv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GiangVien_DonViNgoai">
+    <End Role="DonViNgoai" Type="Self.DonViNgoai" Multiplicity="0..1" />
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonViNgoai">
+        <PropertyRef Name="dv" />
+      </Principal>
+      <Dependent Role="GiangVien">
+        <PropertyRef Name="dv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HuongDan_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="HuongDan" Type="Self.HuongDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="HuongDan">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyen_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hddc_HDBVDC">
+    <End Role="HDBVDC" Type="Self.HDBVDC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HDDC" Type="Self.HDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVDC">
+        <PropertyRef Name="dc" />
+      </Principal>
+      <Dependent Role="HDDC">
+        <PropertyRef Name="dc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HDLV_HDBVLV">
+    <End Role="HDBVLV" Type="Self.HDBVLV" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HDLV" Type="Self.HDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVLV">
+        <PropertyRef Name="hd" />
+      </Principal>
+      <Dependent Role="HDLV">
+        <PropertyRef Name="hd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HocCN_HocVien">
+    <End Role="HocVien" Type="Self.HocVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HocCN" Type="Self.HocCN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocVien">
+        <PropertyRef Name="hv" />
+      </Principal>
+      <Dependent Role="HocCN">
+        <PropertyRef Name="hv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HocCN_NienKhoa">
+    <End Role="NienKhoa" Type="Self.NienKhoa" Multiplicity="1" />
+    <End Role="HocCN" Type="Self.HocCN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NienKhoa">
+        <PropertyRef Name="nk" />
+      </Principal>
+      <Dependent Role="HocCN">
+        <PropertyRef Name="nk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyen_Tcode">
+    <End Role="Tcode" Type="Self.Tcode" Multiplicity="1" />
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tcode">
+        <PropertyRef Name="tcode1" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="tcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CMGV">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <End Role="LinhVucChuyenMon" Type="Self.LinhVucChuyenMon" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="thsContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BoMons" EntityType="Self.BoMon" />
+    <EntitySet Name="ChuyenNganhs" EntityType="Self.ChuyenNganh" />
+    <EntitySet Name="CTHDDCs" EntityType="Self.CTHDDC" />
+    <EntitySet Name="CTHDLVs" EntityType="Self.CTHDLV" />
+    <EntitySet Name="DeTaiLVs" EntityType="Self.DeTaiLV" />
+    <EntitySet Name="DIEMLVs" EntityType="Self.DIEMLV" />
+    <EntitySet Name="DonViNgoais" EntityType="Self.DonViNgoai" />
+    <EntitySet Name="GiangViens" EntityType="Self.GiangVien" />
+    <EntitySet Name="HDBVDCs" EntityType="Self.HDBVDC" />
+    <EntitySet Name="HDBVLVs" EntityType="Self.HDBVLV" />
+    <EntitySet Name="HDDCs" EntityType="Self.HDDC" />
+    <EntitySet Name="HDLVs" EntityType="Self.HDLV" />
+    <EntitySet Name="HocCNs" EntityType="Self.HocCN" />
+    <EntitySet Name="HocViens" EntityType="Self.HocVien" />
+    <EntitySet Name="HuongDans" EntityType="Self.HuongDan" />
+    <EntitySet Name="LinhVucChuyenMons" EntityType="Self.LinhVucChuyenMon" />
+    <EntitySet Name="NienKhoas" EntityType="Self.NienKhoa" />
+    <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+    <EntitySet Name="Tcodes" EntityType="Self.Tcode" />
+    <AssociationSet Name="FK_ChuyenNganh_BoMon" Association="Self.FK_ChuyenNganh_BoMon">
+      <End Role="BoMon" EntitySet="BoMons" />
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganhs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GiangVien_BoMon" Association="Self.FK_GiangVien_BoMon">
+      <End Role="BoMon" EntitySet="BoMons" />
+      <End Role="GiangVien" EntitySet="GiangViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeTaiLV_ChuyenNganh" Association="Self.FK_DeTaiLV_ChuyenNganh">
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganhs" />
+      <End Role="DeTaiLV" EntitySet="DeTaiLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HocCN_ChuyenNganh" Association="Self.FK_HocCN_ChuyenNganh">
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganhs" />
+      <End Role="HocCN" EntitySet="HocCNs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDDC_GiangVien" Association="Self.FK_CTHDDC_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="CTHDDC" EntitySet="CTHDDCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDDC_HDBVDC" Association="Self.FK_CTHDDC_HDBVDC">
+      <End Role="HDBVDC" EntitySet="HDBVDCs" />
+      <End Role="CTHDDC" EntitySet="CTHDDCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDLV_GiangVien" Association="Self.FK_CTHDLV_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="CTHDLV" EntitySet="CTHDLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDLV_HDBVLV" Association="Self.FK_CTHDLV_HDBVLV">
+      <End Role="HDBVLV" EntitySet="HDBVLVs" />
+      <End Role="CTHDLV" EntitySet="CTHDLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeTaiLV_HocVien" Association="Self.FK_DeTaiLV_HocVien">
+      <End Role="HocVien" EntitySet="HocViens" />
+      <End Role="DeTaiLV" EntitySet="DeTaiLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeTaiLV_LinhVucChuyenMon" Association="Self.FK_DeTaiLV_LinhVucChuyenMon">
+      <End Role="LinhVucChuyenMon" EntitySet="LinhVucChuyenMons" />
+      <End Role="DeTaiLV" EntitySet="DeTaiLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hddc_DeTaiLV" Association="Self.FK_hddc_DeTaiLV">
+      <End Role="DeTaiLV" EntitySet="DeTaiLVs" />
+      <End Role="HDDC" EntitySet="HDDCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HDLV_DeTaiLV" Association="Self.FK_HDLV_DeTaiLV">
+      <End Role="DeTaiLV" EntitySet="DeTaiLVs" />
+      <End Role="HDLV" EntitySet="HDLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HuongDan_DeTaiLV" Association="Self.FK_HuongDan_DeTaiLV">
+      <End Role="DeTaiLV" EntitySet="DeTaiLVs" />
+      <End Role="HuongDan" EntitySet="HuongDans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GiangVien_DonViNgoai" Association="Self.FK_GiangVien_DonViNgoai">
+      <End Role="DonViNgoai" EntitySet="DonViNgoais" />
+      <End Role="GiangVien" EntitySet="GiangViens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HuongDan_GiangVien" Association="Self.FK_HuongDan_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="HuongDan" EntitySet="HuongDans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyen_GiangVien" Association="Self.FK_PhanQuyen_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hddc_HDBVDC" Association="Self.FK_hddc_HDBVDC">
+      <End Role="HDBVDC" EntitySet="HDBVDCs" />
+      <End Role="HDDC" EntitySet="HDDCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HDLV_HDBVLV" Association="Self.FK_HDLV_HDBVLV">
+      <End Role="HDBVLV" EntitySet="HDBVLVs" />
+      <End Role="HDLV" EntitySet="HDLVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HocCN_HocVien" Association="Self.FK_HocCN_HocVien">
+      <End Role="HocVien" EntitySet="HocViens" />
+      <End Role="HocCN" EntitySet="HocCNs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HocCN_NienKhoa" Association="Self.FK_HocCN_NienKhoa">
+      <End Role="NienKhoa" EntitySet="NienKhoas" />
+      <End Role="HocCN" EntitySet="HocCNs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyen_Tcode" Association="Self.FK_PhanQuyen_Tcode">
+      <End Role="Tcode" EntitySet="Tcodes" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+    </AssociationSet>
+    <AssociationSet Name="CMGV" Association="Self.CMGV">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="LinhVucChuyenMon" EntitySet="LinhVucChuyenMons" />
+    </AssociationSet>
+    <FunctionImport Name="ADC_store">
+      <Parameter Name="st" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AuthLogin">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ChangePassword" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="newpass" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CheckTCode" ReturnType="Collection(thsModel.CheckTCode_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="tcode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_CMGV">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="cm" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_CTHDDC" ReturnType="Collection(thsModel.CRUD_CTHDDC_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="dc" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="vaitro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_CTHDLV" ReturnType="Collection(thsModel.CRUD_CTHDLV_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="hd" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="vaitro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_HDDC">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="dc" Mode="In" Type="String" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="lanbaove" Mode="In" Type="Int16" />
+      <Parameter Name="diem" Mode="In" Type="Double" />
+      <Parameter Name="ykien" Mode="In" Type="String" />
+      <Parameter Name="ketqua" Mode="In" Type="String" />
+      <Parameter Name="sophieudat" Mode="In" Type="Int16" />
+      <Parameter Name="thoidiembvdc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_HDLV">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="hd" Mode="In" Type="String" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="lanbaove" Mode="In" Type="Int16" />
+      <Parameter Name="diem" Mode="In" Type="Double" />
+      <Parameter Name="ykien" Mode="In" Type="String" />
+      <Parameter Name="ketqua" Mode="In" Type="String" />
+      <Parameter Name="sophieudat" Mode="In" Type="Int16" />
+      <Parameter Name="thoidiembv" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_HocCN">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="hv" Mode="In" Type="String" />
+      <Parameter Name="cn" Mode="In" Type="String" />
+      <Parameter Name="nk" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CRUD_HuongDan">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="vaitrohuongdan" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_BoMon" ReturnType="Collection(thsModel.CUD_BoMon_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+      <Parameter Name="bmnew" Mode="In" Type="String" />
+      <Parameter Name="bmten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_ChuyenNganh" ReturnType="Collection(thsModel.CUD_ChuyenNganh_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="cn" Mode="In" Type="String" />
+      <Parameter Name="cnnew" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+      <Parameter Name="cnten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_DeTaiLV" ReturnType="Collection(String)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="cm" Mode="In" Type="String" />
+      <Parameter Name="qd" Mode="In" Type="String" />
+      <Parameter Name="cn" Mode="In" Type="String" />
+      <Parameter Name="hv" Mode="In" Type="String" />
+      <Parameter Name="lvloai" Mode="In" Type="String" />
+      <Parameter Name="nk" Mode="In" Type="String" />
+      <Parameter Name="lvten" Mode="In" Type="String" />
+      <Parameter Name="lvtomtat" Mode="In" Type="String" />
+      <Parameter Name="lvngaynop" Mode="In" Type="DateTime" />
+      <Parameter Name="lvluutru" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_DonViNgoai" ReturnType="Collection(thsModel.CUD_DonViNgoai_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="dv" Mode="In" Type="String" />
+      <Parameter Name="dvnew" Mode="In" Type="String" />
+      <Parameter Name="dvten" Mode="In" Type="String" />
+      <Parameter Name="dvdiachi" Mode="In" Type="String" />
+      <Parameter Name="dvsdt" Mode="In" Type="String" />
+      <Parameter Name="dveil" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_GiangVien" ReturnType="Collection(String)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="dv" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+      <Parameter Name="gvhoten" Mode="In" Type="String" />
+      <Parameter Name="gvgioitinh" Mode="In" Type="String" />
+      <Parameter Name="gvchucdanh" Mode="In" Type="String" />
+      <Parameter Name="gvnamcongtac" Mode="In" Type="DateTime" />
+      <Parameter Name="gvquoctich" Mode="In" Type="String" />
+      <Parameter Name="gvngaysinh" Mode="In" Type="DateTime" />
+      <Parameter Name="gvnoio" Mode="In" Type="String" />
+      <Parameter Name="gvsodienthoai" Mode="In" Type="String" />
+      <Parameter Name="gveil" Mode="In" Type="String" />
+      <Parameter Name="gvhinhanh" Mode="In" Type="String" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_HDBVDC" ReturnType="Collection(String)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="dc" Mode="In" Type="String" />
+      <Parameter Name="dcten" Mode="In" Type="String" />
+      <Parameter Name="dcngaythanhlap" Mode="In" Type="DateTime" />
+      <Parameter Name="dcngayketthuc" Mode="In" Type="DateTime" />
+      <Parameter Name="dcdiadiem" Mode="In" Type="String" />
+      <Parameter Name="dcthoigian" Mode="In" Type="DateTime" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_HDBVLV" ReturnType="Collection(String)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="hd" Mode="In" Type="String" />
+      <Parameter Name="hdten" Mode="In" Type="String" />
+      <Parameter Name="hdngaythanhlap" Mode="In" Type="DateTime" />
+      <Parameter Name="hdngayketthuc" Mode="In" Type="DateTime" />
+      <Parameter Name="hddiadiem" Mode="In" Type="String" />
+      <Parameter Name="hdthoigian" Mode="In" Type="DateTime" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_HocVien" ReturnType="Collection(String)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="hv" Mode="In" Type="String" />
+      <Parameter Name="hvhoten" Mode="In" Type="String" />
+      <Parameter Name="hvgioitinh" Mode="In" Type="String" />
+      <Parameter Name="hvngaysinh" Mode="In" Type="DateTime" />
+      <Parameter Name="hvngaydkdt" Mode="In" Type="DateTime" />
+      <Parameter Name="hvngaydkbv" Mode="In" Type="DateTime" />
+      <Parameter Name="hvquequan" Mode="In" Type="String" />
+      <Parameter Name="hvsodienthoai" Mode="In" Type="String" />
+      <Parameter Name="hveil" Mode="In" Type="String" />
+      <Parameter Name="hvhinhanh" Mode="In" Type="String" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_LinhVucChuyenMon" ReturnType="Collection(thsModel.CUD_LinhVucChuyenMon_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="cm" Mode="In" Type="String" />
+      <Parameter Name="cmnew" Mode="In" Type="String" />
+      <Parameter Name="cmten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CUD_NienKhoa" ReturnType="Collection(thsModel.CUD_NienKhoa_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="nk" Mode="In" Type="String" />
+      <Parameter Name="nknew" Mode="In" Type="String" />
+      <Parameter Name="nkten" Mode="In" Type="String" />
+      <Parameter Name="nknam" Mode="In" Type="String" />
+      <Parameter Name="nktungay" Mode="In" Type="DateTime" />
+      <Parameter Name="nkdenngay" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetBasic" ReturnType="Collection(thsModel.GetBasic_Result)">
+      <Parameter Name="Table" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetByID" ReturnType="Collection(thsModel.GetByID_Result)">
+      <Parameter Name="table" Mode="In" Type="String" />
+      <Parameter Name="value" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchGiangVien" ReturnType="Collection(thsModel.SearchGiangVien_Result)">
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="dv" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+      <Parameter Name="cm" Mode="In" Type="String" />
+      <Parameter Name="gvquoctich" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchHDDC" ReturnType="Collection(thsModel.SearchHDDC_Result)">
+      <Parameter Name="dc" Mode="In" Type="String" />
+      <Parameter Name="tungay" Mode="In" Type="DateTime" />
+      <Parameter Name="denngay" Mode="In" Type="DateTime" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="owner" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchHDLV" ReturnType="Collection(thsModel.SearchHDLV_Result)">
+      <Parameter Name="hd" Mode="In" Type="String" />
+      <Parameter Name="tungay" Mode="In" Type="DateTime" />
+      <Parameter Name="denngay" Mode="In" Type="DateTime" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="owner" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchHocVien" ReturnType="Collection(thsModel.SearchHocVien_Result)">
+      <Parameter Name="hv" Mode="In" Type="String" />
+      <Parameter Name="cn" Mode="In" Type="String" />
+      <Parameter Name="nk" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchLuanVan" ReturnType="Collection(thsModel.SearchLuanVan_Result)">
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="hv" Mode="In" Type="String" />
+      <Parameter Name="qd" Mode="In" Type="String" />
+      <Parameter Name="cm" Mode="In" Type="String" />
+      <Parameter Name="cn" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="owner" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SendMailSupport" ReturnType="Collection(String)">
+      <Parameter Name="hv" Mode="In" Type="String" />
+      <Parameter Name="bm" Mode="In" Type="String" />
+      <Parameter Name="nk" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Result">
+      <Parameter Name="mahd" Mode="In" Type="String" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+      <Parameter Name="gv" Mode="In" Type="String" />
+      <Parameter Name="diem" Mode="In" Type="Single" />
+      <Parameter Name="danhgia" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Result_Duyet" ReturnType="Collection(Int32)">
+      <Parameter Name="mahd" Mode="In" Type="String" />
+      <Parameter Name="lv" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UserRole">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="tcode" Mode="In" Type="String" />
+      <Parameter Name="grantoption" Mode="In" Type="String" />
+      <Parameter Name="usergrant" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CheckTCode_Result">
+    <Property Type="String" Name="username" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="tcode" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="CRUD_CTHDDC_Result">
+    <Property Type="String" Name="dc" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="gv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="vaitro" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gv1" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="dv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="bm" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="gvhoten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvgioitinh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gvchucdanh" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="gvnamcongtac" Nullable="true" />
+    <Property Type="String" Name="gvquoctich" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="gvngaysinh" Nullable="true" />
+    <Property Type="String" Name="gvnoio" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvsodienthoai" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gveil" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gvhinhanh" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvtkhau" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CRUD_CTHDLV_Result">
+    <Property Type="String" Name="gv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="hd" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="vaitro" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gv1" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="dv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="bm" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="gvhoten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvgioitinh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gvchucdanh" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="gvnamcongtac" Nullable="true" />
+    <Property Type="String" Name="gvquoctich" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="gvngaysinh" Nullable="true" />
+    <Property Type="String" Name="gvnoio" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvsodienthoai" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gveil" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gvhinhanh" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvtkhau" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CUD_BoMon_Result">
+    <Property Type="String" Name="bm" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="bmten" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="tbm" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="CUD_ChuyenNganh_Result">
+    <Property Type="String" Name="cn" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="bm" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="cnten" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="CUD_DonViNgoai_Result">
+    <Property Type="String" Name="dv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="dvten" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="dvdiachi" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="dvsdt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dveil" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="CUD_LinhVucChuyenMon_Result">
+    <Property Type="String" Name="cm" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="cmten" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="CUD_NienKhoa_Result">
+    <Property Type="String" Name="nk" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="nkten" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="nknam" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="nktungay" Nullable="true" />
+    <Property Type="DateTime" Name="nkdenngay" Nullable="true" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="GetBasic_Result">
+    <Property Type="String" Name="dv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="dvten" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="dvdiachi" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="dvsdt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dveil" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="GetByID_Result">
+    <Property Type="String" Name="hv" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="hvhoten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvgioitinh" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="hvngaysinh" Nullable="true" />
+    <Property Type="DateTime" Name="hvngaydkdt" Nullable="true" />
+    <Property Type="DateTime" Name="hvngaydkbv" Nullable="true" />
+    <Property Type="String" Name="hvquequan" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvsodienthoai" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="hveil" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvhinhanh" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="SearchGiangVien_Result">
+    <Property Type="String" Name="gv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="dv" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="bm" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="gvhoten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvgioitinh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gvchucdanh" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="gvnamcongtac" Nullable="true" />
+    <Property Type="String" Name="gvquoctich" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="gvngaysinh" Nullable="true" />
+    <Property Type="String" Name="gvnoio" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="gvsodienthoai" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="gvhinhanh" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="cv" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SearchHDDC_Result">
+    <Property Type="String" Name="dcngaythanhlap" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="dcngayketthuc" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="dcthoigian" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ctime" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="mtime" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="exchair" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="exw" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="dc" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="dcten" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="dcngaythanhlap1" Nullable="false" />
+    <Property Type="DateTime" Name="dcngayketthuc1" Nullable="true" />
+    <Property Type="String" Name="dcdiadiem" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="dcthoigian1" Nullable="true" Precision="23" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime1" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SearchHDLV_Result">
+    <Property Type="String" Name="hdngaythanhlap" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="hdngayketthuc" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="hdthoigian" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="ctime" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="mtime" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="exchair" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="exw" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="hd" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="hdten" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="hdngaythanhlap1" Nullable="false" />
+    <Property Type="DateTime" Name="hdngayketthuc1" Nullable="true" />
+    <Property Type="String" Name="hddiadiem" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="hdthoigian1" Nullable="true" Precision="23" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime1" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SearchHocVien_Result">
+    <Property Type="String" Name="hv" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="hvhoten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvgioitinh" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="hvngaysinh" Nullable="true" />
+    <Property Type="DateTime" Name="hvngaydkdt" Nullable="true" />
+    <Property Type="DateTime" Name="hvngaydkbv" Nullable="true" />
+    <Property Type="String" Name="hvquequan" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvsodienthoai" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="hveil" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvhinhanh" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvtkhau" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SearchLuanVan_Result">
+    <Property Type="String" Name="lv" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="cm" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="qd" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="cn" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="hv" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="lvloai" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="nk" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="lvten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="lvtomtat" Nullable="true" />
+    <Property Type="DateTime" Name="lvngaynop" Nullable="true" />
+    <Property Type="String" Name="lvluutru" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="createby" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="modifyby" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="ctime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="mtime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="cmten" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cnten" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="hvhoten" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

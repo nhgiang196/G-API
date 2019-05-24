@@ -1,0 +1,4 @@
+2018-11-02 08:40:38
+System.IndexOutOfRangeException: Cannot find table 0.
+   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at THS.WebAPI.Controller.THSAdminController.FindByID(mygrantparram pr) in d:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 76

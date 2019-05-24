@@ -1,0 +1,918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="thsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'ths.dbo.Audit' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Audit">
+          <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="TableName" Type="varchar" MaxLength="128" />
+          <Property Name="PK" Type="varchar" MaxLength="1000" />
+          <Property Name="FieldName" Type="varchar" MaxLength="128" />
+          <Property Name="OldValue" Type="varchar" MaxLength="1000" />
+          <Property Name="NewValue" Type="varchar" MaxLength="1000" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UserName" Type="varchar" MaxLength="128" />
+        </EntityType>-->
+  <EntityType Name="BoMon">
+    <Key>
+      <PropertyRef Name="bm" />
+    </Key>
+    <Property Name="bm" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="bmten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="tbm" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ChuyenNganh">
+    <Key>
+      <PropertyRef Name="cn" />
+    </Key>
+    <Property Name="cn" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="bm" Type="nvarchar" MaxLength="10" />
+    <Property Name="cnten" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CMGV">
+    <Key>
+      <PropertyRef Name="gv" />
+      <PropertyRef Name="cm" />
+    </Key>
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTHDDC">
+    <Key>
+      <PropertyRef Name="dc" />
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="dc" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="vaitro" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CTHDLV">
+    <Key>
+      <PropertyRef Name="gv" />
+      <PropertyRef Name="hd" />
+    </Key>
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="hd" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="vaitro" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DeTaiLV">
+    <Key>
+      <PropertyRef Name="lv" />
+    </Key>
+    <Property Name="lv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="cm" Type="nvarchar" MaxLength="10" />
+    <Property Name="qd" Type="nvarchar" MaxLength="30" />
+    <Property Name="cn" Type="nvarchar" MaxLength="10" />
+    <Property Name="hv" Type="nvarchar" MaxLength="50" />
+    <Property Name="lvloai" Type="nvarchar" MaxLength="10" />
+    <Property Name="nk" Type="nvarchar" MaxLength="10" />
+    <Property Name="lvten" Type="nvarchar" MaxLength="255" />
+    <Property Name="lvtomtat" Type="nvarchar(max)" />
+    <Property Name="lvngaynop" Type="date" />
+    <Property Name="lvluutru" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="createby" Type="nvarchar" MaxLength="10" />
+    <Property Name="modifyby" Type="nvarchar" MaxLength="10" />
+    <Property Name="ctime" Type="datetime" />
+    <Property Name="mtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DIEMLV">
+    <Key>
+      <PropertyRef Name="mahd" />
+      <PropertyRef Name="lv" />
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="mahd" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="diem" Type="real" />
+    <Property Name="danhgia" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DonViNgoai">
+    <Key>
+      <PropertyRef Name="dv" />
+    </Key>
+    <Property Name="dv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="dvten" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="dvdiachi" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="dvsdt" Type="nvarchar" MaxLength="50" />
+    <Property Name="dveil" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="GiangVien">
+    <Key>
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="dv" Type="nvarchar" MaxLength="10" />
+    <Property Name="bm" Type="nvarchar" MaxLength="10" />
+    <Property Name="gvhoten" Type="nvarchar" MaxLength="255" />
+    <Property Name="gvgioitinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="gvchucdanh" Type="nvarchar" MaxLength="10" />
+    <Property Name="gvnamcongtac" Type="date" />
+    <Property Name="gvquoctich" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gvngaysinh" Type="date" />
+    <Property Name="gvnoio" Type="nvarchar" MaxLength="255" />
+    <Property Name="gvsodienthoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="gveil" Type="nvarchar" MaxLength="50" />
+    <Property Name="gvhinhanh" Type="nvarchar" MaxLength="255" />
+    <Property Name="gvtkhau" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="createby" Type="nvarchar" MaxLength="10" />
+    <Property Name="modifyby" Type="nvarchar" MaxLength="10" />
+    <Property Name="ctime" Type="datetime" />
+    <Property Name="mtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HDBVDC">
+    <Key>
+      <PropertyRef Name="dc" />
+    </Key>
+    <Property Name="dc" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="dcten" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="dcngaythanhlap" Type="date" Nullable="false" />
+    <Property Name="dcngayketthuc" Type="date" />
+    <Property Name="dcdiadiem" Type="nvarchar" MaxLength="255" />
+    <Property Name="dcthoigian" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="createby" Type="nvarchar" MaxLength="10" />
+    <Property Name="modifyby" Type="nvarchar" MaxLength="10" />
+    <Property Name="ctime" Type="datetime" />
+    <Property Name="mtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HDBVLV">
+    <Key>
+      <PropertyRef Name="hd" />
+    </Key>
+    <Property Name="hd" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="hdten" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="hdngaythanhlap" Type="date" Nullable="false" />
+    <Property Name="hdngayketthuc" Type="date" />
+    <Property Name="hddiadiem" Type="nvarchar" MaxLength="255" />
+    <Property Name="hdthoigian" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="createby" Type="nvarchar" MaxLength="10" />
+    <Property Name="modifyby" Type="nvarchar" MaxLength="10" />
+    <Property Name="ctime" Type="datetime" />
+    <Property Name="mtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HDDC">
+    <Key>
+      <PropertyRef Name="dc" />
+      <PropertyRef Name="lv" />
+    </Key>
+    <Property Name="dc" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lanbaove" Type="smallint" />
+    <Property Name="ykien" Type="nvarchar" MaxLength="255" />
+    <Property Name="ketqua" Type="nvarchar" MaxLength="50" />
+    <Property Name="sophieudat" Type="int" />
+    <Property Name="diem" Type="real" />
+    <Property Name="thoidiembvdc" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HDLV">
+    <Key>
+      <PropertyRef Name="hd" />
+      <PropertyRef Name="lv" />
+    </Key>
+    <Property Name="hd" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="diem" Type="real" />
+    <Property Name="ykien" Type="nvarchar" MaxLength="255" />
+    <Property Name="ketqua" Type="nvarchar" MaxLength="50" />
+    <Property Name="lanbaove" Type="smallint" />
+    <Property Name="sophieudat" Type="smallint" />
+    <Property Name="thoidiembv" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HocCN">
+    <Key>
+      <PropertyRef Name="hv" />
+      <PropertyRef Name="cn" />
+    </Key>
+    <Property Name="hv" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cn" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nk" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="lv" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="HocVien">
+    <Key>
+      <PropertyRef Name="hv" />
+    </Key>
+    <Property Name="hv" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hvhoten" Type="nvarchar" MaxLength="255" />
+    <Property Name="hvgioitinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="hvngaysinh" Type="date" />
+    <Property Name="hvngaydkdt" Type="date" />
+    <Property Name="hvngaydkbv" Type="date" />
+    <Property Name="hvquequan" Type="nvarchar" MaxLength="255" />
+    <Property Name="hvsodienthoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="hveil" Type="nvarchar" MaxLength="255" />
+    <Property Name="hvhinhanh" Type="nvarchar" MaxLength="255" />
+    <Property Name="hvtkhau" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+    <Property Name="createby" Type="nvarchar" MaxLength="10" />
+    <Property Name="modifyby" Type="nvarchar" MaxLength="10" />
+    <Property Name="ctime" Type="datetime" />
+    <Property Name="mtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HuongDan">
+    <Key>
+      <PropertyRef Name="lv" />
+      <PropertyRef Name="gv" />
+    </Key>
+    <Property Name="lv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="vaitrohuongdan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LinhVucChuyenMon">
+    <Key>
+      <PropertyRef Name="cm" />
+    </Key>
+    <Property Name="cm" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="cmten" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="NienKhoa">
+    <Key>
+      <PropertyRef Name="nk" />
+    </Key>
+    <Property Name="nk" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nkten" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="nknam" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nktungay" Type="date" />
+    <Property Name="nkdenngay" Type="date" />
+    <Property Name="status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="gv" />
+      <PropertyRef Name="tcode" />
+    </Key>
+    <Property Name="gv" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tcode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="grantvoke" Type="bit" />
+    <Property Name="usergrant" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Tcode">
+    <Key>
+      <PropertyRef Name="tcode" />
+    </Key>
+    <Property Name="tcode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tcname" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_ChuyenNganh_BoMon">
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="0..1" />
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoMon">
+        <PropertyRef Name="bm" />
+      </Principal>
+      <Dependent Role="ChuyenNganh">
+        <PropertyRef Name="bm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMGV_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="CMGV" Type="Self.CMGV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="CMGV">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CMGV_LinhVucChuyenMon">
+    <End Role="LinhVucChuyenMon" Type="Self.LinhVucChuyenMon" Multiplicity="1" />
+    <End Role="CMGV" Type="Self.CMGV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVucChuyenMon">
+        <PropertyRef Name="cm" />
+      </Principal>
+      <Dependent Role="CMGV">
+        <PropertyRef Name="cm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDDC_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="CTHDDC" Type="Self.CTHDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="CTHDDC">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDDC_HDBVDC">
+    <End Role="HDBVDC" Type="Self.HDBVDC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CTHDDC" Type="Self.CTHDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVDC">
+        <PropertyRef Name="dc" />
+      </Principal>
+      <Dependent Role="CTHDDC">
+        <PropertyRef Name="dc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDLV_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="CTHDLV" Type="Self.CTHDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="CTHDLV">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHDLV_HDBVLV">
+    <End Role="HDBVLV" Type="Self.HDBVLV" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CTHDLV" Type="Self.CTHDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVLV">
+        <PropertyRef Name="hd" />
+      </Principal>
+      <Dependent Role="CTHDLV">
+        <PropertyRef Name="hd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeTaiLV_ChuyenNganh">
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="0..1" />
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenNganh">
+        <PropertyRef Name="cn" />
+      </Principal>
+      <Dependent Role="DeTaiLV">
+        <PropertyRef Name="cn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeTaiLV_HocVien">
+    <End Role="HocVien" Type="Self.HocVien" Multiplicity="0..1" />
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocVien">
+        <PropertyRef Name="hv" />
+      </Principal>
+      <Dependent Role="DeTaiLV">
+        <PropertyRef Name="hv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeTaiLV_LinhVucChuyenMon">
+    <End Role="LinhVucChuyenMon" Type="Self.LinhVucChuyenMon" Multiplicity="0..1" />
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinhVucChuyenMon">
+        <PropertyRef Name="cm" />
+      </Principal>
+      <Dependent Role="DeTaiLV">
+        <PropertyRef Name="cm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GiangVien_BoMon">
+    <End Role="BoMon" Type="Self.BoMon" Multiplicity="0..1" />
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BoMon">
+        <PropertyRef Name="bm" />
+      </Principal>
+      <Dependent Role="GiangVien">
+        <PropertyRef Name="bm" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GiangVien_DonViNgoai">
+    <End Role="DonViNgoai" Type="Self.DonViNgoai" Multiplicity="0..1" />
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonViNgoai">
+        <PropertyRef Name="dv" />
+      </Principal>
+      <Dependent Role="GiangVien">
+        <PropertyRef Name="dv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hddc_DeTaiLV">
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="1" />
+    <End Role="HDDC" Type="Self.HDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeTaiLV">
+        <PropertyRef Name="lv" />
+      </Principal>
+      <Dependent Role="HDDC">
+        <PropertyRef Name="lv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hddc_HDBVDC">
+    <End Role="HDBVDC" Type="Self.HDBVDC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HDDC" Type="Self.HDDC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVDC">
+        <PropertyRef Name="dc" />
+      </Principal>
+      <Dependent Role="HDDC">
+        <PropertyRef Name="dc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HDLV_DeTaiLV">
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="1" />
+    <End Role="HDLV" Type="Self.HDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeTaiLV">
+        <PropertyRef Name="lv" />
+      </Principal>
+      <Dependent Role="HDLV">
+        <PropertyRef Name="lv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HDLV_HDBVLV">
+    <End Role="HDBVLV" Type="Self.HDBVLV" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HDLV" Type="Self.HDLV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDBVLV">
+        <PropertyRef Name="hd" />
+      </Principal>
+      <Dependent Role="HDLV">
+        <PropertyRef Name="hd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HocCN_ChuyenNganh">
+    <End Role="ChuyenNganh" Type="Self.ChuyenNganh" Multiplicity="1" />
+    <End Role="HocCN" Type="Self.HocCN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenNganh">
+        <PropertyRef Name="cn" />
+      </Principal>
+      <Dependent Role="HocCN">
+        <PropertyRef Name="cn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HocCN_HocVien">
+    <End Role="HocVien" Type="Self.HocVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HocCN" Type="Self.HocCN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HocVien">
+        <PropertyRef Name="hv" />
+      </Principal>
+      <Dependent Role="HocCN">
+        <PropertyRef Name="hv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HocCN_NienKhoa">
+    <End Role="NienKhoa" Type="Self.NienKhoa" Multiplicity="1" />
+    <End Role="HocCN" Type="Self.HocCN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NienKhoa">
+        <PropertyRef Name="nk" />
+      </Principal>
+      <Dependent Role="HocCN">
+        <PropertyRef Name="nk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HuongDan_DeTaiLV">
+    <End Role="DeTaiLV" Type="Self.DeTaiLV" Multiplicity="1" />
+    <End Role="HuongDan" Type="Self.HuongDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeTaiLV">
+        <PropertyRef Name="lv" />
+      </Principal>
+      <Dependent Role="HuongDan">
+        <PropertyRef Name="lv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HuongDan_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1" />
+    <End Role="HuongDan" Type="Self.HuongDan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="HuongDan">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyen_GiangVien">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="gv" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="gv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhanQuyen_Tcode">
+    <End Role="Tcode" Type="Self.Tcode" Multiplicity="1" />
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tcode">
+        <PropertyRef Name="tcode" />
+      </Principal>
+      <Dependent Role="PhanQuyen">
+        <PropertyRef Name="tcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ADC_store" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="st" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="AuthLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+    <Parameter Name="newpass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CheckTCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="tcode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CRUD_CMGV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="cm" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CRUD_CTHDDC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="dc" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="vaitro" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CRUD_CTHDLV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="hd" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="vaitro" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CRUD_HDDC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="dc" Type="nvarchar" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="lanbaove" Type="smallint" Mode="In" />
+    <Parameter Name="diem" Type="float" Mode="In" />
+    <Parameter Name="ykien" Type="nvarchar" Mode="In" />
+    <Parameter Name="ketqua" Type="nvarchar" Mode="In" />
+    <Parameter Name="sophieudat" Type="smallint" Mode="In" />
+    <Parameter Name="thoidiembvdc" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="CRUD_HDLV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="hd" Type="nvarchar" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="lanbaove" Type="smallint" Mode="In" />
+    <Parameter Name="diem" Type="float" Mode="In" />
+    <Parameter Name="ykien" Type="nvarchar" Mode="In" />
+    <Parameter Name="ketqua" Type="nvarchar" Mode="In" />
+    <Parameter Name="sophieudat" Type="smallint" Mode="In" />
+    <Parameter Name="thoidiembv" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="CRUD_HocCN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="hv" Type="nvarchar" Mode="In" />
+    <Parameter Name="cn" Type="nvarchar" Mode="In" />
+    <Parameter Name="nk" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CRUD_HuongDan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="vaitrohuongdan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_BoMon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+    <Parameter Name="bmnew" Type="nvarchar" Mode="In" />
+    <Parameter Name="bmten" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_ChuyenNganh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="cn" Type="nvarchar" Mode="In" />
+    <Parameter Name="cnnew" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+    <Parameter Name="cnten" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_DeTaiLV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="cm" Type="nvarchar" Mode="In" />
+    <Parameter Name="qd" Type="nvarchar" Mode="In" />
+    <Parameter Name="cn" Type="nvarchar" Mode="In" />
+    <Parameter Name="hv" Type="nvarchar" Mode="In" />
+    <Parameter Name="lvloai" Type="nvarchar" Mode="In" />
+    <Parameter Name="nk" Type="nvarchar" Mode="In" />
+    <Parameter Name="lvten" Type="nvarchar" Mode="In" />
+    <Parameter Name="lvtomtat" Type="nvarchar" Mode="In" />
+    <Parameter Name="lvngaynop" Type="date" Mode="In" />
+    <Parameter Name="lvluutru" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_DonViNgoai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="dv" Type="nvarchar" Mode="In" />
+    <Parameter Name="dvnew" Type="nvarchar" Mode="In" />
+    <Parameter Name="dvten" Type="nvarchar" Mode="In" />
+    <Parameter Name="dvdiachi" Type="nvarchar" Mode="In" />
+    <Parameter Name="dvsdt" Type="nvarchar" Mode="In" />
+    <Parameter Name="dveil" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_GiangVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="dv" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvhoten" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvgioitinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvchucdanh" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvnamcongtac" Type="date" Mode="In" />
+    <Parameter Name="gvquoctich" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvngaysinh" Type="date" Mode="In" />
+    <Parameter Name="gvnoio" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvsodienthoai" Type="nvarchar" Mode="In" />
+    <Parameter Name="gveil" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvhinhanh" Type="nvarchar" Mode="In" />
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_HDBVDC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="dc" Type="nvarchar" Mode="In" />
+    <Parameter Name="dcten" Type="nvarchar" Mode="In" />
+    <Parameter Name="dcngaythanhlap" Type="date" Mode="In" />
+    <Parameter Name="dcngayketthuc" Type="date" Mode="In" />
+    <Parameter Name="dcdiadiem" Type="nvarchar" Mode="In" />
+    <Parameter Name="dcthoigian" Type="datetime" Mode="In" />
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_HDBVLV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="hd" Type="nvarchar" Mode="In" />
+    <Parameter Name="hdten" Type="nvarchar" Mode="In" />
+    <Parameter Name="hdngaythanhlap" Type="date" Mode="In" />
+    <Parameter Name="hdngayketthuc" Type="date" Mode="In" />
+    <Parameter Name="hddiadiem" Type="nvarchar" Mode="In" />
+    <Parameter Name="hdthoigian" Type="datetime" Mode="In" />
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_HocVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="hv" Type="nvarchar" Mode="In" />
+    <Parameter Name="hvhoten" Type="nvarchar" Mode="In" />
+    <Parameter Name="hvgioitinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="hvngaysinh" Type="date" Mode="In" />
+    <Parameter Name="hvngaydkdt" Type="date" Mode="In" />
+    <Parameter Name="hvngaydkbv" Type="date" Mode="In" />
+    <Parameter Name="hvquequan" Type="nvarchar" Mode="In" />
+    <Parameter Name="hvsodienthoai" Type="nvarchar" Mode="In" />
+    <Parameter Name="hveil" Type="nvarchar" Mode="In" />
+    <Parameter Name="hvhinhanh" Type="nvarchar" Mode="In" />
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_LinhVucChuyenMon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="cm" Type="nvarchar" Mode="In" />
+    <Parameter Name="cmnew" Type="nvarchar" Mode="In" />
+    <Parameter Name="cmten" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CUD_NienKhoa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="nk" Type="nvarchar" Mode="In" />
+    <Parameter Name="nknew" Type="nvarchar" Mode="In" />
+    <Parameter Name="nkten" Type="nvarchar" Mode="In" />
+    <Parameter Name="nknam" Type="nvarchar" Mode="In" />
+    <Parameter Name="nktungay" Type="date" Mode="In" />
+    <Parameter Name="nkdenngay" Type="date" Mode="In" />
+  </Function>
+  <Function Name="fndc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="fngv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="dv" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="fnhd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="fnhv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="fnlv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="GetBasic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Table" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="table" Type="nvarchar" Mode="In" />
+    <Parameter Name="value" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchGiangVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="dv" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+    <Parameter Name="cm" Type="nvarchar" Mode="In" />
+    <Parameter Name="gvquoctich" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchHDDC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dc" Type="nvarchar" Mode="In" />
+    <Parameter Name="tungay" Type="datetime" Mode="In" />
+    <Parameter Name="denngay" Type="datetime" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchHDLV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hd" Type="nvarchar" Mode="In" />
+    <Parameter Name="tungay" Type="datetime" Mode="In" />
+    <Parameter Name="denngay" Type="datetime" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchHocVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hv" Type="nvarchar" Mode="In" />
+    <Parameter Name="cn" Type="nvarchar" Mode="In" />
+    <Parameter Name="nk" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchLuanVan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="hv" Type="nvarchar" Mode="In" />
+    <Parameter Name="qd" Type="nvarchar" Mode="In" />
+    <Parameter Name="cm" Type="nvarchar" Mode="In" />
+    <Parameter Name="cn" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SendMailSupport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="hv" Type="nvarchar" Mode="In" />
+    <Parameter Name="bm" Type="nvarchar" Mode="In" />
+    <Parameter Name="nk" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Update_Result" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahd" Type="nvarchar" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+    <Parameter Name="gv" Type="nvarchar" Mode="In" />
+    <Parameter Name="diem" Type="real" Mode="In" />
+    <Parameter Name="danhgia" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Update_Result_Duyet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mahd" Type="nvarchar" Mode="In" />
+    <Parameter Name="lv" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="tcode" Type="nvarchar" Mode="In" />
+    <Parameter Name="grantoption" Type="nvarchar" Mode="In" />
+    <Parameter Name="usergrant" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="thsModelStoreContainer">
+    <EntitySet Name="BoMon" EntityType="Self.BoMon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuyenNganh" EntityType="Self.ChuyenNganh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CMGV" EntityType="Self.CMGV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTHDDC" EntityType="Self.CTHDDC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTHDLV" EntityType="Self.CTHDLV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeTaiLV" EntityType="Self.DeTaiLV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIEMLV" EntityType="Self.DIEMLV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonViNgoai" EntityType="Self.DonViNgoai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiangVien" EntityType="Self.GiangVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HDBVDC" EntityType="Self.HDBVDC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HDBVLV" EntityType="Self.HDBVLV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HDDC" EntityType="Self.HDDC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HDLV" EntityType="Self.HDLV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HocCN" EntityType="Self.HocCN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HocVien" EntityType="Self.HocVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HuongDan" EntityType="Self.HuongDan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LinhVucChuyenMon" EntityType="Self.LinhVucChuyenMon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NienKhoa" EntityType="Self.NienKhoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tcode" EntityType="Self.Tcode" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ChuyenNganh_BoMon" Association="Self.FK_ChuyenNganh_BoMon">
+      <End Role="BoMon" EntitySet="BoMon" />
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMGV_GiangVien" Association="Self.FK_CMGV_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangVien" />
+      <End Role="CMGV" EntitySet="CMGV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CMGV_LinhVucChuyenMon" Association="Self.FK_CMGV_LinhVucChuyenMon">
+      <End Role="LinhVucChuyenMon" EntitySet="LinhVucChuyenMon" />
+      <End Role="CMGV" EntitySet="CMGV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDDC_GiangVien" Association="Self.FK_CTHDDC_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangVien" />
+      <End Role="CTHDDC" EntitySet="CTHDDC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDDC_HDBVDC" Association="Self.FK_CTHDDC_HDBVDC">
+      <End Role="HDBVDC" EntitySet="HDBVDC" />
+      <End Role="CTHDDC" EntitySet="CTHDDC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDLV_GiangVien" Association="Self.FK_CTHDLV_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangVien" />
+      <End Role="CTHDLV" EntitySet="CTHDLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHDLV_HDBVLV" Association="Self.FK_CTHDLV_HDBVLV">
+      <End Role="HDBVLV" EntitySet="HDBVLV" />
+      <End Role="CTHDLV" EntitySet="CTHDLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeTaiLV_ChuyenNganh" Association="Self.FK_DeTaiLV_ChuyenNganh">
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganh" />
+      <End Role="DeTaiLV" EntitySet="DeTaiLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeTaiLV_HocVien" Association="Self.FK_DeTaiLV_HocVien">
+      <End Role="HocVien" EntitySet="HocVien" />
+      <End Role="DeTaiLV" EntitySet="DeTaiLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeTaiLV_LinhVucChuyenMon" Association="Self.FK_DeTaiLV_LinhVucChuyenMon">
+      <End Role="LinhVucChuyenMon" EntitySet="LinhVucChuyenMon" />
+      <End Role="DeTaiLV" EntitySet="DeTaiLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GiangVien_BoMon" Association="Self.FK_GiangVien_BoMon">
+      <End Role="BoMon" EntitySet="BoMon" />
+      <End Role="GiangVien" EntitySet="GiangVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GiangVien_DonViNgoai" Association="Self.FK_GiangVien_DonViNgoai">
+      <End Role="DonViNgoai" EntitySet="DonViNgoai" />
+      <End Role="GiangVien" EntitySet="GiangVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hddc_DeTaiLV" Association="Self.FK_hddc_DeTaiLV">
+      <End Role="DeTaiLV" EntitySet="DeTaiLV" />
+      <End Role="HDDC" EntitySet="HDDC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hddc_HDBVDC" Association="Self.FK_hddc_HDBVDC">
+      <End Role="HDBVDC" EntitySet="HDBVDC" />
+      <End Role="HDDC" EntitySet="HDDC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HDLV_DeTaiLV" Association="Self.FK_HDLV_DeTaiLV">
+      <End Role="DeTaiLV" EntitySet="DeTaiLV" />
+      <End Role="HDLV" EntitySet="HDLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HDLV_HDBVLV" Association="Self.FK_HDLV_HDBVLV">
+      <End Role="HDBVLV" EntitySet="HDBVLV" />
+      <End Role="HDLV" EntitySet="HDLV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HocCN_ChuyenNganh" Association="Self.FK_HocCN_ChuyenNganh">
+      <End Role="ChuyenNganh" EntitySet="ChuyenNganh" />
+      <End Role="HocCN" EntitySet="HocCN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HocCN_HocVien" Association="Self.FK_HocCN_HocVien">
+      <End Role="HocVien" EntitySet="HocVien" />
+      <End Role="HocCN" EntitySet="HocCN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HocCN_NienKhoa" Association="Self.FK_HocCN_NienKhoa">
+      <End Role="NienKhoa" EntitySet="NienKhoa" />
+      <End Role="HocCN" EntitySet="HocCN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HuongDan_DeTaiLV" Association="Self.FK_HuongDan_DeTaiLV">
+      <End Role="DeTaiLV" EntitySet="DeTaiLV" />
+      <End Role="HuongDan" EntitySet="HuongDan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HuongDan_GiangVien" Association="Self.FK_HuongDan_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangVien" />
+      <End Role="HuongDan" EntitySet="HuongDan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyen_GiangVien" Association="Self.FK_PhanQuyen_GiangVien">
+      <End Role="GiangVien" EntitySet="GiangVien" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhanQuyen_Tcode" Association="Self.FK_PhanQuyen_Tcode">
+      <End Role="Tcode" EntitySet="Tcode" />
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

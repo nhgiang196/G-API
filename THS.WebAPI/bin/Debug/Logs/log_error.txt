@@ -1,0 +1,48 @@
+2019-05-23 16:19:58
+System.InvalidOperationException: No connection string named 'thsContext' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at THS.WebAPI.Controller.THSAdminController.ChangePassword(gvuser pr) in D:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 62
+2019-05-23 16:20:30
+System.InvalidOperationException: No connection string named 'thsContext' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at THS.WebAPI.Controller.THSAdminController.ChangePassword(gvuser pr) in D:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 62
+2019-05-23 16:20:52
+System.InvalidOperationException: No connection string named 'thsContext' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at THS.WebAPI.Controller.THSAdminController.ChangePassword(gvuser pr) in D:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 62
+2019-05-23 16:22:43
+System.InvalidOperationException: No connection string named 'thsContext' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at THS.WebAPI.Controller.THSAdminController.ChangePassword(gvuser pr) in D:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 62
+2019-05-23 16:23:32
+System.InvalidOperationException: No connection string named 'thsContext' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at THS.WebAPI.Controller.THSAdminController.ChangePassword(gvuser pr) in D:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 62
+2019-05-23 16:25:02
+System.InvalidOperationException: No connection string named 'thsContext' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(TransactionalBehavior transactionalBehavior, String sql, Object[] parameters)
+   at System.Data.Entity.Database.ExecuteSqlCommand(String sql, Object[] parameters)
+   at THS.WebAPI.Controller.THSAdminController.ChangePassword(gvuser pr) in D:\nhgiang\LV\thsapi\THS.WebAPI\Controller\THSAdminController.cs:line 62

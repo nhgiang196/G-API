@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="thsModelStoreContainer" CdmEntityContainer="thsContext">
+    <EntitySetMapping Name="BoMons">
+      <EntityTypeMapping TypeName="thsModel.BoMon">
+        <MappingFragment StoreEntitySet="BoMon">
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="bmten" ColumnName="bmten" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="tbm" ColumnName="tbm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChuyenNganhs">
+      <EntityTypeMapping TypeName="thsModel.ChuyenNganh">
+        <MappingFragment StoreEntitySet="ChuyenNganh">
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="cnten" ColumnName="cnten" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHDDCs">
+      <EntityTypeMapping TypeName="thsModel.CTHDDC">
+        <MappingFragment StoreEntitySet="CTHDDC">
+          <ScalarProperty Name="dc" ColumnName="dc" />
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="vaitro" ColumnName="vaitro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHDLVs">
+      <EntityTypeMapping TypeName="thsModel.CTHDLV">
+        <MappingFragment StoreEntitySet="CTHDLV">
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="vaitro" ColumnName="vaitro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeTaiLVs">
+      <EntityTypeMapping TypeName="thsModel.DeTaiLV">
+        <MappingFragment StoreEntitySet="DeTaiLV">
+          <ScalarProperty Name="lv" ColumnName="lv" />
+          <ScalarProperty Name="cm" ColumnName="cm" />
+          <ScalarProperty Name="qd" ColumnName="qd" />
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="hv" ColumnName="hv" />
+          <ScalarProperty Name="lvloai" ColumnName="lvloai" />
+          <ScalarProperty Name="nk" ColumnName="nk" />
+          <ScalarProperty Name="lvten" ColumnName="lvten" />
+          <ScalarProperty Name="lvtomtat" ColumnName="lvtomtat" />
+          <ScalarProperty Name="lvngaynop" ColumnName="lvngaynop" />
+          <ScalarProperty Name="lvluutru" ColumnName="lvluutru" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIEMLVs">
+      <EntityTypeMapping TypeName="thsModel.DIEMLV">
+        <MappingFragment StoreEntitySet="DIEMLV">
+          <ScalarProperty Name="mahd" ColumnName="mahd" />
+          <ScalarProperty Name="lv" ColumnName="lv" />
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="diem" ColumnName="diem" />
+          <ScalarProperty Name="danhgia" ColumnName="danhgia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonViNgoais">
+      <EntityTypeMapping TypeName="thsModel.DonViNgoai">
+        <MappingFragment StoreEntitySet="DonViNgoai">
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="dvten" ColumnName="dvten" />
+          <ScalarProperty Name="dvdiachi" ColumnName="dvdiachi" />
+          <ScalarProperty Name="dvsdt" ColumnName="dvsdt" />
+          <ScalarProperty Name="dveil" ColumnName="dveil" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiangViens">
+      <EntityTypeMapping TypeName="thsModel.GiangVien">
+        <MappingFragment StoreEntitySet="GiangVien">
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="gvhoten" ColumnName="gvhoten" />
+          <ScalarProperty Name="gvgioitinh" ColumnName="gvgioitinh" />
+          <ScalarProperty Name="gvchucdanh" ColumnName="gvchucdanh" />
+          <ScalarProperty Name="gvnamcongtac" ColumnName="gvnamcongtac" />
+          <ScalarProperty Name="gvquoctich" ColumnName="gvquoctich" />
+          <ScalarProperty Name="gvngaysinh" ColumnName="gvngaysinh" />
+          <ScalarProperty Name="gvnoio" ColumnName="gvnoio" />
+          <ScalarProperty Name="gvsodienthoai" ColumnName="gvsodienthoai" />
+          <ScalarProperty Name="gveil" ColumnName="gveil" />
+          <ScalarProperty Name="gvhinhanh" ColumnName="gvhinhanh" />
+          <ScalarProperty Name="gvtkhau" ColumnName="gvtkhau" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDBVDCs">
+      <EntityTypeMapping TypeName="thsModel.HDBVDC">
+        <MappingFragment StoreEntitySet="HDBVDC">
+          <ScalarProperty Name="dc" ColumnName="dc" />
+          <ScalarProperty Name="dcten" ColumnName="dcten" />
+          <ScalarProperty Name="dcngaythanhlap" ColumnName="dcngaythanhlap" />
+          <ScalarProperty Name="dcngayketthuc" ColumnName="dcngayketthuc" />
+          <ScalarProperty Name="dcdiadiem" ColumnName="dcdiadiem" />
+          <ScalarProperty Name="dcthoigian" ColumnName="dcthoigian" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDBVLVs">
+      <EntityTypeMapping TypeName="thsModel.HDBVLV">
+        <MappingFragment StoreEntitySet="HDBVLV">
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="hdten" ColumnName="hdten" />
+          <ScalarProperty Name="hdngaythanhlap" ColumnName="hdngaythanhlap" />
+          <ScalarProperty Name="hdngayketthuc" ColumnName="hdngayketthuc" />
+          <ScalarProperty Name="hddiadiem" ColumnName="hddiadiem" />
+          <ScalarProperty Name="hdthoigian" ColumnName="hdthoigian" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDDCs">
+      <EntityTypeMapping TypeName="thsModel.HDDC">
+        <MappingFragment StoreEntitySet="HDDC">
+          <ScalarProperty Name="dc" ColumnName="dc" />
+          <ScalarProperty Name="lv" ColumnName="lv" />
+          <ScalarProperty Name="lanbaove" ColumnName="lanbaove" />
+          <ScalarProperty Name="ykien" ColumnName="ykien" />
+          <ScalarProperty Name="ketqua" ColumnName="ketqua" />
+          <ScalarProperty Name="sophieudat" ColumnName="sophieudat" />
+          <ScalarProperty Name="diem" ColumnName="diem" />
+          <ScalarProperty Name="thoidiembvdc" ColumnName="thoidiembvdc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HDLVs">
+      <EntityTypeMapping TypeName="thsModel.HDLV">
+        <MappingFragment StoreEntitySet="HDLV">
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="lv" ColumnName="lv" />
+          <ScalarProperty Name="diem" ColumnName="diem" />
+          <ScalarProperty Name="ykien" ColumnName="ykien" />
+          <ScalarProperty Name="ketqua" ColumnName="ketqua" />
+          <ScalarProperty Name="lanbaove" ColumnName="lanbaove" />
+          <ScalarProperty Name="sophieudat" ColumnName="sophieudat" />
+          <ScalarProperty Name="thoidiembv" ColumnName="thoidiembv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HocCNs">
+      <EntityTypeMapping TypeName="thsModel.HocCN">
+        <MappingFragment StoreEntitySet="HocCN">
+          <ScalarProperty Name="hv" ColumnName="hv" />
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="nk" ColumnName="nk" />
+          <ScalarProperty Name="lv" ColumnName="lv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HocViens">
+      <EntityTypeMapping TypeName="thsModel.HocVien">
+        <MappingFragment StoreEntitySet="HocVien">
+          <ScalarProperty Name="hv" ColumnName="hv" />
+          <ScalarProperty Name="hvhoten" ColumnName="hvhoten" />
+          <ScalarProperty Name="hvgioitinh" ColumnName="hvgioitinh" />
+          <ScalarProperty Name="hvngaysinh" ColumnName="hvngaysinh" />
+          <ScalarProperty Name="hvngaydkdt" ColumnName="hvngaydkdt" />
+          <ScalarProperty Name="hvngaydkbv" ColumnName="hvngaydkbv" />
+          <ScalarProperty Name="hvquequan" ColumnName="hvquequan" />
+          <ScalarProperty Name="hvsodienthoai" ColumnName="hvsodienthoai" />
+          <ScalarProperty Name="hveil" ColumnName="hveil" />
+          <ScalarProperty Name="hvhinhanh" ColumnName="hvhinhanh" />
+          <ScalarProperty Name="hvtkhau" ColumnName="hvtkhau" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HuongDans">
+      <EntityTypeMapping TypeName="thsModel.HuongDan">
+        <MappingFragment StoreEntitySet="HuongDan">
+          <ScalarProperty Name="lv" ColumnName="lv" />
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="vaitrohuongdan" ColumnName="vaitrohuongdan" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinhVucChuyenMons">
+      <EntityTypeMapping TypeName="thsModel.LinhVucChuyenMon">
+        <MappingFragment StoreEntitySet="LinhVucChuyenMon">
+          <ScalarProperty Name="cm" ColumnName="cm" />
+          <ScalarProperty Name="cmten" ColumnName="cmten" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NienKhoas">
+      <EntityTypeMapping TypeName="thsModel.NienKhoa">
+        <MappingFragment StoreEntitySet="NienKhoa">
+          <ScalarProperty Name="nk" ColumnName="nk" />
+          <ScalarProperty Name="nkten" ColumnName="nkten" />
+          <ScalarProperty Name="nknam" ColumnName="nknam" />
+          <ScalarProperty Name="nktungay" ColumnName="nktungay" />
+          <ScalarProperty Name="nkdenngay" ColumnName="nkdenngay" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="thsModel.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+          <ScalarProperty Name="grantvoke" ColumnName="grantvoke" />
+          <ScalarProperty Name="usergrant" ColumnName="usergrant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tcodes">
+      <EntityTypeMapping TypeName="thsModel.Tcode">
+        <MappingFragment StoreEntitySet="Tcode">
+          <ScalarProperty Name="tcode1" ColumnName="tcode" />
+          <ScalarProperty Name="tcname" ColumnName="tcname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CMGV" TypeName="thsModel.CMGV" StoreEntitySet="CMGV">
+      <EndProperty Name="GiangVien">
+        <ScalarProperty Name="gv" ColumnName="gv" />
+      </EndProperty>
+      <EndProperty Name="LinhVucChuyenMon">
+        <ScalarProperty Name="cm" ColumnName="cm" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="ADC_store" FunctionName="thsModel.Store.ADC_store" />
+    <FunctionImportMapping FunctionImportName="AuthLogin" FunctionName="thsModel.Store.AuthLogin" />
+    <FunctionImportMapping FunctionImportName="ChangePassword" FunctionName="thsModel.Store.ChangePassword" />
+    <FunctionImportMapping FunctionImportName="CheckTCode" FunctionName="thsModel.Store.CheckTCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CheckTCode_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="tcode" ColumnName="tcode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CRUD_CMGV" FunctionName="thsModel.Store.CRUD_CMGV" />
+    <FunctionImportMapping FunctionImportName="CRUD_CTHDDC" FunctionName="thsModel.Store.CRUD_CTHDDC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CRUD_CTHDDC_Result">
+          <ScalarProperty Name="dc" ColumnName="dc" />
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="vaitro" ColumnName="vaitro" />
+          <ScalarProperty Name="gv1" ColumnName="gv1" />
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="gvhoten" ColumnName="gvhoten" />
+          <ScalarProperty Name="gvgioitinh" ColumnName="gvgioitinh" />
+          <ScalarProperty Name="gvchucdanh" ColumnName="gvchucdanh" />
+          <ScalarProperty Name="gvnamcongtac" ColumnName="gvnamcongtac" />
+          <ScalarProperty Name="gvquoctich" ColumnName="gvquoctich" />
+          <ScalarProperty Name="gvngaysinh" ColumnName="gvngaysinh" />
+          <ScalarProperty Name="gvnoio" ColumnName="gvnoio" />
+          <ScalarProperty Name="gvsodienthoai" ColumnName="gvsodienthoai" />
+          <ScalarProperty Name="gveil" ColumnName="gveil" />
+          <ScalarProperty Name="gvhinhanh" ColumnName="gvhinhanh" />
+          <ScalarProperty Name="gvtkhau" ColumnName="gvtkhau" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CRUD_CTHDLV" FunctionName="thsModel.Store.CRUD_CTHDLV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CRUD_CTHDLV_Result">
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="vaitro" ColumnName="vaitro" />
+          <ScalarProperty Name="gv1" ColumnName="gv1" />
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="gvhoten" ColumnName="gvhoten" />
+          <ScalarProperty Name="gvgioitinh" ColumnName="gvgioitinh" />
+          <ScalarProperty Name="gvchucdanh" ColumnName="gvchucdanh" />
+          <ScalarProperty Name="gvnamcongtac" ColumnName="gvnamcongtac" />
+          <ScalarProperty Name="gvquoctich" ColumnName="gvquoctich" />
+          <ScalarProperty Name="gvngaysinh" ColumnName="gvngaysinh" />
+          <ScalarProperty Name="gvnoio" ColumnName="gvnoio" />
+          <ScalarProperty Name="gvsodienthoai" ColumnName="gvsodienthoai" />
+          <ScalarProperty Name="gveil" ColumnName="gveil" />
+          <ScalarProperty Name="gvhinhanh" ColumnName="gvhinhanh" />
+          <ScalarProperty Name="gvtkhau" ColumnName="gvtkhau" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CRUD_HDDC" FunctionName="thsModel.Store.CRUD_HDDC" />
+    <FunctionImportMapping FunctionImportName="CRUD_HDLV" FunctionName="thsModel.Store.CRUD_HDLV" />
+    <FunctionImportMapping FunctionImportName="CRUD_HocCN" FunctionName="thsModel.Store.CRUD_HocCN" />
+    <FunctionImportMapping FunctionImportName="CRUD_HuongDan" FunctionName="thsModel.Store.CRUD_HuongDan" />
+    <FunctionImportMapping FunctionImportName="CUD_BoMon" FunctionName="thsModel.Store.CUD_BoMon">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CUD_BoMon_Result">
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="bmten" ColumnName="bmten" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="tbm" ColumnName="tbm" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CUD_ChuyenNganh" FunctionName="thsModel.Store.CUD_ChuyenNganh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CUD_ChuyenNganh_Result">
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="cnten" ColumnName="cnten" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CUD_DeTaiLV" FunctionName="thsModel.Store.CUD_DeTaiLV" />
+    <FunctionImportMapping FunctionImportName="CUD_DonViNgoai" FunctionName="thsModel.Store.CUD_DonViNgoai">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CUD_DonViNgoai_Result">
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="dvten" ColumnName="dvten" />
+          <ScalarProperty Name="dvdiachi" ColumnName="dvdiachi" />
+          <ScalarProperty Name="dvsdt" ColumnName="dvsdt" />
+          <ScalarProperty Name="dveil" ColumnName="dveil" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CUD_GiangVien" FunctionName="thsModel.Store.CUD_GiangVien" />
+    <FunctionImportMapping FunctionImportName="CUD_HDBVDC" FunctionName="thsModel.Store.CUD_HDBVDC" />
+    <FunctionImportMapping FunctionImportName="CUD_HDBVLV" FunctionName="thsModel.Store.CUD_HDBVLV" />
+    <FunctionImportMapping FunctionImportName="CUD_HocVien" FunctionName="thsModel.Store.CUD_HocVien" />
+    <FunctionImportMapping FunctionImportName="CUD_LinhVucChuyenMon" FunctionName="thsModel.Store.CUD_LinhVucChuyenMon">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CUD_LinhVucChuyenMon_Result">
+          <ScalarProperty Name="cm" ColumnName="cm" />
+          <ScalarProperty Name="cmten" ColumnName="cmten" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CUD_NienKhoa" FunctionName="thsModel.Store.CUD_NienKhoa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.CUD_NienKhoa_Result">
+          <ScalarProperty Name="nk" ColumnName="nk" />
+          <ScalarProperty Name="nkten" ColumnName="nkten" />
+          <ScalarProperty Name="nknam" ColumnName="nknam" />
+          <ScalarProperty Name="nktungay" ColumnName="nktungay" />
+          <ScalarProperty Name="nkdenngay" ColumnName="nkdenngay" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBasic" FunctionName="thsModel.Store.GetBasic">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.GetBasic_Result">
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="dvten" ColumnName="dvten" />
+          <ScalarProperty Name="dvdiachi" ColumnName="dvdiachi" />
+          <ScalarProperty Name="dvsdt" ColumnName="dvsdt" />
+          <ScalarProperty Name="dveil" ColumnName="dveil" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetByID" FunctionName="thsModel.Store.GetByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.GetByID_Result">
+          <ScalarProperty Name="hv" ColumnName="hv" />
+          <ScalarProperty Name="hvhoten" ColumnName="hvhoten" />
+          <ScalarProperty Name="hvgioitinh" ColumnName="hvgioitinh" />
+          <ScalarProperty Name="hvngaysinh" ColumnName="hvngaysinh" />
+          <ScalarProperty Name="hvngaydkdt" ColumnName="hvngaydkdt" />
+          <ScalarProperty Name="hvngaydkbv" ColumnName="hvngaydkbv" />
+          <ScalarProperty Name="hvquequan" ColumnName="hvquequan" />
+          <ScalarProperty Name="hvsodienthoai" ColumnName="hvsodienthoai" />
+          <ScalarProperty Name="hveil" ColumnName="hveil" />
+          <ScalarProperty Name="hvhinhanh" ColumnName="hvhinhanh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchGiangVien" FunctionName="thsModel.Store.SearchGiangVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.SearchGiangVien_Result">
+          <ScalarProperty Name="gv" ColumnName="gv" />
+          <ScalarProperty Name="dv" ColumnName="dv" />
+          <ScalarProperty Name="bm" ColumnName="bm" />
+          <ScalarProperty Name="gvhoten" ColumnName="gvhoten" />
+          <ScalarProperty Name="gvgioitinh" ColumnName="gvgioitinh" />
+          <ScalarProperty Name="gvchucdanh" ColumnName="gvchucdanh" />
+          <ScalarProperty Name="gvnamcongtac" ColumnName="gvnamcongtac" />
+          <ScalarProperty Name="gvquoctich" ColumnName="gvquoctich" />
+          <ScalarProperty Name="gvngaysinh" ColumnName="gvngaysinh" />
+          <ScalarProperty Name="gvnoio" ColumnName="gvnoio" />
+          <ScalarProperty Name="gvsodienthoai" ColumnName="gvsodienthoai" />
+          <ScalarProperty Name="gvhinhanh" ColumnName="gvhinhanh" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+          <ScalarProperty Name="cv" ColumnName="cv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchHDDC" FunctionName="thsModel.Store.SearchHDDC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.SearchHDDC_Result">
+          <ScalarProperty Name="dcngaythanhlap" ColumnName="dcngaythanhlap" />
+          <ScalarProperty Name="dcngayketthuc" ColumnName="dcngayketthuc" />
+          <ScalarProperty Name="dcthoigian" ColumnName="dcthoigian" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+          <ScalarProperty Name="exchair" ColumnName="exchair" />
+          <ScalarProperty Name="exw" ColumnName="exw" />
+          <ScalarProperty Name="dc" ColumnName="dc" />
+          <ScalarProperty Name="dcten" ColumnName="dcten" />
+          <ScalarProperty Name="dcngaythanhlap1" ColumnName="dcngaythanhlap1" />
+          <ScalarProperty Name="dcngayketthuc1" ColumnName="dcngayketthuc1" />
+          <ScalarProperty Name="dcdiadiem" ColumnName="dcdiadiem" />
+          <ScalarProperty Name="dcthoigian1" ColumnName="dcthoigian1" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime1" ColumnName="ctime1" />
+          <ScalarProperty Name="mtime1" ColumnName="mtime1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchHDLV" FunctionName="thsModel.Store.SearchHDLV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.SearchHDLV_Result">
+          <ScalarProperty Name="hdngaythanhlap" ColumnName="hdngaythanhlap" />
+          <ScalarProperty Name="hdngayketthuc" ColumnName="hdngayketthuc" />
+          <ScalarProperty Name="hdthoigian" ColumnName="hdthoigian" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+          <ScalarProperty Name="exchair" ColumnName="exchair" />
+          <ScalarProperty Name="exw" ColumnName="exw" />
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="hdten" ColumnName="hdten" />
+          <ScalarProperty Name="hdngaythanhlap1" ColumnName="hdngaythanhlap1" />
+          <ScalarProperty Name="hdngayketthuc1" ColumnName="hdngayketthuc1" />
+          <ScalarProperty Name="hddiadiem" ColumnName="hddiadiem" />
+          <ScalarProperty Name="hdthoigian1" ColumnName="hdthoigian1" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime1" ColumnName="ctime1" />
+          <ScalarProperty Name="mtime1" ColumnName="mtime1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchHocVien" FunctionName="thsModel.Store.SearchHocVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.SearchHocVien_Result">
+          <ScalarProperty Name="hv" ColumnName="hv" />
+          <ScalarProperty Name="hvhoten" ColumnName="hvhoten" />
+          <ScalarProperty Name="hvgioitinh" ColumnName="hvgioitinh" />
+          <ScalarProperty Name="hvngaysinh" ColumnName="hvngaysinh" />
+          <ScalarProperty Name="hvngaydkdt" ColumnName="hvngaydkdt" />
+          <ScalarProperty Name="hvngaydkbv" ColumnName="hvngaydkbv" />
+          <ScalarProperty Name="hvquequan" ColumnName="hvquequan" />
+          <ScalarProperty Name="hvsodienthoai" ColumnName="hvsodienthoai" />
+          <ScalarProperty Name="hveil" ColumnName="hveil" />
+          <ScalarProperty Name="hvhinhanh" ColumnName="hvhinhanh" />
+          <ScalarProperty Name="hvtkhau" ColumnName="hvtkhau" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchLuanVan" FunctionName="thsModel.Store.SearchLuanVan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="thsModel.SearchLuanVan_Result">
+          <ScalarProperty Name="lv" ColumnName="lv" />
+          <ScalarProperty Name="cm" ColumnName="cm" />
+          <ScalarProperty Name="qd" ColumnName="qd" />
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="hv" ColumnName="hv" />
+          <ScalarProperty Name="lvloai" ColumnName="lvloai" />
+          <ScalarProperty Name="nk" ColumnName="nk" />
+          <ScalarProperty Name="lvten" ColumnName="lvten" />
+          <ScalarProperty Name="lvtomtat" ColumnName="lvtomtat" />
+          <ScalarProperty Name="lvngaynop" ColumnName="lvngaynop" />
+          <ScalarProperty Name="lvluutru" ColumnName="lvluutru" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="createby" ColumnName="createby" />
+          <ScalarProperty Name="modifyby" ColumnName="modifyby" />
+          <ScalarProperty Name="ctime" ColumnName="ctime" />
+          <ScalarProperty Name="mtime" ColumnName="mtime" />
+          <ScalarProperty Name="cmten" ColumnName="cmten" />
+          <ScalarProperty Name="cnten" ColumnName="cnten" />
+          <ScalarProperty Name="hvhoten" ColumnName="hvhoten" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SendMailSupport" FunctionName="thsModel.Store.SendMailSupport" />
+    <FunctionImportMapping FunctionImportName="Update_Result" FunctionName="thsModel.Store.Update_Result" />
+    <FunctionImportMapping FunctionImportName="Update_Result_Duyet" FunctionName="thsModel.Store.Update_Result_Duyet" />
+    <FunctionImportMapping FunctionImportName="UserRole" FunctionName="thsModel.Store.UserRole" />
+  </EntityContainerMapping>
+</Mapping>
