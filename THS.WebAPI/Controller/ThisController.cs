@@ -16,28 +16,11 @@ namespace THS.WebAPI.Controller
     [RoutePrefix("api/thiscontroller")]
     public class THSAdminController : ApiController
     {
-
-        OperationResult operationResult = new OperationResult();
         thsContext _context = new thsContext();
-        HelperBiz _helper = new HelperBiz();
 
-        
-
-        public class gvuser
-        {
-            public gvuser() { }
-            public string username { get; set; }
-            public string pass { get; set; }
-            public string newpass { get; set; }
-            public gvuser(string Username, string Pass, string Newpass)
-            {
-                username = Username; pass = Pass; newpass = Newpass;
-            }
-        }
-
-        [Route("ChangePassword")]
-        [HttpPost]
-        public IHttpActionResult ChangePassword(gvuser pr)
+        [Route("Myfunction")]
+        [HttpGet]
+        public IHttpActionResult Myfunction(MyModelAndClass pr)
         {
             try
             {
@@ -46,12 +29,10 @@ namespace THS.WebAPI.Controller
             }
             catch (Exception e)
             {
-                Loger.Error(e);
                 throw new Exception(e.Message);
             }
-            return Ok(operationResult);
+            return Ok();
         }
-
 
     }
 }
