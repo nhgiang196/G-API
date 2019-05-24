@@ -17,7 +17,6 @@ D:\nhgiang\LV\API\THS.Models\bin\Debug\EntityFramework.dll
 D:\nhgiang\LV\API\THS.Models\bin\Debug\EntityFramework.SqlServer.dll
 D:\nhgiang\LV\API\THS.Models\bin\Debug\EntityFramework.xml
 D:\nhgiang\LV\API\THS.Models\bin\Debug\EntityFramework.SqlServer.xml
-D:\nhgiang\LV\API\THS.Models\obj\Debug\THS.Models.csprojAssemblyReference.cache
 D:\nhgiang\LV\API\THS.Models\obj\Debug\THS.Models.csproj.CoreCompileInputs.cache
 D:\nhgiang\LV\API\THS.Models\obj\Debug\THS.Models.csproj.CopyComplete
 D:\nhgiang\LV\API\THS.Models\obj\Debug\EHS.Models.dll
